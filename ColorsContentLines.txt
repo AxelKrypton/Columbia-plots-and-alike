@@ -6,22 +6,23 @@
 #   - z is the BLUE  from 0 to 255              #
 #################################################
 
+Transitions lines are 1mm width, axis are 0.3mm width
 
-Physical Point:         	(0.30.150)
-Tricritical line:        	(255.0.0)
-Tricritical text:        	(255.0.0)
-Z(2) text:                  (0.0.255)
-Z(2) line:              	(0.102.255)
-Z(2) region:              	(128.179.255)
-1st order region:           (255.255.150)
-1st order text:             (255.80.0)
-1st order line:             (255.128.0)
-O(4) text:              	(255.0.200)
-O(4) line:              	(255.0.200)
-O(4) region:              	(255.215.255)
-1st order triple region:	(170.255.204)
-1st order triple text:      (0.85.34)
-1st order triple line:      (0.180.0)
+Physical Point:            (0.30.150)
+Tricritical line:          (255.0.0)
+Tricritical text:          (255.0.0)
+Z(2) text:                 (0.0.255)
+Z(2) line:                 (0.102.255)
+Z(2) region:               (128.179.255)
+1st order region:          (255.255.150)
+1st order text:            (255.80.0)
+1st order line:            (255.128.0)
+O(4) text:                 (255.0.200)
+O(4) line:                 (255.0.200)
+O(4) region:               (255.215.255)
+1st order triple region:   (170.255.204)
+1st order triple text:     (0.85.34)
+1st order triple line:     (0.180.0)
 
 
 
