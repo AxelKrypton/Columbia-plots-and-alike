@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2"
-     inkscape:cx="409.87753"
+     inkscape:cx="318.12753"
      inkscape:cy="407.4993"
      inkscape:document-units="px"
      inkscape:current-layer="g4412"
@@ -1102,7 +1102,7 @@
      inkscape:groupmode="layer"
      id="g4412"
      inkscape:label="Line_Massless_B"
-     style="display:none">
+     style="display:inline">
     <g
        style="stroke:#ff8000;stroke-width:3.54330707;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="g4414">
@@ -1141,7 +1141,7 @@
        sodipodi:cy="478.58093"
        sodipodi:cx="69.28125"
        id="path4420"
-       style="opacity:0.98000004;fill:#ff00c8;fill-opacity:1;stroke:none;display:inline"
+       style="opacity:0.98000003999999996;fill:#ff0000;fill-opacity:1;stroke:none;display:inline"
        sodipodi:type="arc" />
     <g
        ns0:text="\\textit{(b)}"
@@ -1437,7 +1437,7 @@
      inkscape:groupmode="layer"
      id="g14018"
      inkscape:label="Line_Massive"
-     style="display:inline">
+     style="display:none">
     <path
        sodipodi:end="6.2498321"
        sodipodi:start="5.2677492"
