@@ -23,7 +23,9 @@ O(4) region:               (255.215.255)
 1st order triple region:   (170.255.204)
 1st order triple text:     (0.85.34)
 1st order triple line:     (0.180.0)
-
+1st order quadruple text:  (128.0.128)
+1st order quadruple line:  (170.0.212)
+Crossover region:          (240.240.240)
 
 
 #################################################
