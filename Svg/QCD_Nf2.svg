@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2"
-     inkscape:cx="318.12753"
-     inkscape:cy="407.4993"
+     inkscape:cx="333.5549"
+     inkscape:cy="404.00739"
      inkscape:document-units="px"
-     inkscape:current-layer="g4412"
+     inkscape:current-layer="g4422"
      showgrid="true"
      inkscape:snap-global="true"
      inkscape:snap-bbox="true"
@@ -457,6 +457,18 @@
        r="91.663834"
        gradientTransform="matrix(2.630906,0,7.3444855e-6,4.3227962,-683.25673,-2473.311)"
        gradientUnits="userSpaceOnUse" />
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect4202"
+       effect="spiro" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4184"
+       is_visible="true" />
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect7728-36"
+       effect="spiro" />
   </defs>
   <metadata
      id="metadata7">
@@ -571,7 +583,7 @@
        sodipodi:cy="622.86218"
        sodipodi:cx="637.28308"
        id="path6379"
-       style="fill:none;stroke:#000000;stroke-width:1.26300152;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.78900454,3.78900454;stroke-dashoffset:0;display:inline"
+       style="fill:none;stroke:#000000;stroke-width:1.26300156;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.78900454, 3.78900454;stroke-dashoffset:0;display:inline"
        sodipodi:type="arc" />
   </g>
   <g
@@ -740,6 +752,16 @@
         </g>
       </g>
     </g>
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98000004;fill:#00b400;fill-opacity:1;stroke:none;display:inline"
+       id="path3604"
+       sodipodi:cx="69.28125"
+       sodipodi:cy="478.58093"
+       sodipodi:rx="3.8062837"
+       sodipodi:ry="3.8062837"
+       d="m 73.087534,478.58093 a 3.8062837,3.8062837 0 1 1 -7.612568,0 3.8062837,3.8062837 0 1 1 7.612568,0 z"
+       transform="matrix(1.4782637,0,0,1.4782637,9.615539,-135.10664)" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -863,12 +885,22 @@
         </g>
       </g>
     </g>
+    <path
+       transform="matrix(1.4782637,0,0,1.4782637,9.615539,-135.10664)"
+       d="m 73.087534,478.58093 a 3.8062837,3.8062837 0 1 1 -7.612568,0 3.8062837,3.8062837 0 1 1 7.612568,0 z"
+       sodipodi:ry="3.8062837"
+       sodipodi:rx="3.8062837"
+       sodipodi:cy="478.58093"
+       sodipodi:cx="69.28125"
+       id="path3601"
+       style="opacity:0.98000004;fill:#00b400;fill-opacity:1;stroke:none;display:inline"
+       sodipodi:type="arc" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="g4422"
      inkscape:label="Line_Massless_D"
-     style="display:none">
+     style="display:inline">
     <g
        style="stroke:#ff8000;stroke-width:3.54330707;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="g4424">
@@ -980,6 +1012,16 @@
         </g>
       </g>
     </g>
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98000004;fill:#00b400;fill-opacity:1;stroke:none;display:inline"
+       id="path4150"
+       sodipodi:cx="69.28125"
+       sodipodi:cy="478.58093"
+       sodipodi:rx="3.8062837"
+       sodipodi:ry="3.8062837"
+       d="m 73.087534,478.58093 a 3.8062837,3.8062837 0 1 1 -7.612568,0 3.8062837,3.8062837 0 1 1 7.612568,0 z"
+       transform="matrix(1.4782637,0,0,1.4782637,9.6155391,-135.10664)" />
   </g>
   <g
      style="display:none"
@@ -1102,7 +1144,7 @@
      inkscape:groupmode="layer"
      id="g4412"
      inkscape:label="Line_Massless_B"
-     style="display:inline">
+     style="display:none">
     <g
        style="stroke:#ff8000;stroke-width:3.54330707;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="g4414">
@@ -1141,7 +1183,7 @@
        sodipodi:cy="478.58093"
        sodipodi:cx="69.28125"
        id="path4420"
-       style="opacity:0.98000003999999996;fill:#ff0000;fill-opacity:1;stroke:none;display:inline"
+       style="opacity:0.98000004;fill:#ff0000;fill-opacity:1;stroke:none;display:inline"
        sodipodi:type="arc" />
     <g
        ns0:text="\\textit{(b)}"
