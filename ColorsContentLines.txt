@@ -27,6 +27,8 @@ O(4) region:               (255.215.255)
 1st order quadruple line:  (170.0.212)
 Crossover region gray:     (240.240.240)
 Crossover region blue:     (212.255.255)
+2nd order line in general: (0.0.180)
+2nd order text in general: (0.0.180)
 
 
 #################################################
