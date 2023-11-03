@@ -55,7 +55,7 @@
 
 			> h2 {
 				@include vendor('pointer-events', 'none');
-				bottom: (1.5em / 0.8);
+				bottom: (1.5em / 0.5);
 				font-size: 0.8em;
 				left: (1.75em / 0.8);
 				margin: 0;

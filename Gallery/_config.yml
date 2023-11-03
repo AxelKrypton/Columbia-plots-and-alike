@@ -22,3 +22,7 @@ plugins:
 collections:
   images:
     output: true
+
+sass:
+  sass_dir: assets/sass
+  style: expanded
