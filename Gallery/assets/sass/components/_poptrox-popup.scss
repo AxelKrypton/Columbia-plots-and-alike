@@ -75,6 +75,7 @@
 		}
 
 		.caption {
+			@include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
 			@include padding(2em, 2em);
 			/* @include vendor('background-image', 'linear-gradient(to top, rgba(16,16,16,0.45) 25%, rgba(16,16,16,0) 100%)'); */
 			bottom: 0;
@@ -84,14 +85,18 @@
 			text-align: left;
 			width: 100%;
 			z-index: 2;
+			background-color: _palette(bg);
+			/* By default hide caption (it should be displayed hoovering on the image */
+			opacity: 0.0;
 
 			h2, h3, h4, h5, h6 {
 				margin: 0 0 (_size(element-margin) * 0.25) 0;
+				color: _palette(fg);
 			}
 
 			p {
 				color: _palette(fg-bold);
-			}
+            }
 		}
 
 		.loader {
@@ -117,11 +122,15 @@
 			.closer,
 			.nav-previous,
 			.nav-next {
-				opacity: 0.5;
+				opacity: 0.33;
 
 				&:hover {
 					opacity: 1.0;
 				}
+			}
+
+			.caption {
+				opacity: 1.0;
 			}
 		}
 
