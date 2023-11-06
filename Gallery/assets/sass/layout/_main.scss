@@ -28,7 +28,7 @@
 			position: relative;
 
 			&:after {
-				@include vendor('background-image', 'linear-gradient(to top, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 35%)');
+				@include vendor('background-image', 'linear-gradient(to bottom, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 100%)');
 				@include vendor('pointer-events', 'none');
 				background-size: cover;
 				content: '';
@@ -55,12 +55,13 @@
 
 			> h2 {
 				@include vendor('pointer-events', 'none');
-				bottom: (1.5em / 0.5);
+				bottom: 0;
 				font-size: 0.8em;
-				left: (1.75em / 0.8);
-				margin: 0;
+				left: 1em;
+				margin: 1ex;
 				position: absolute;
 				z-index: 1;
+				color: _palette(bg-bold);
 			}
 
 			> p {
