@@ -15,6 +15,11 @@
           <a href="{{site.baseurl}}/assets/images/fulls/{{ image.path | split: '/' | last | split: '.' | first }}.jpg" class="image">
             <img src="{{site.baseurl}}/assets/images/thumbs/{{ image.path | split: '/' | last | split: '.' | first }}.jpg" alt="{{ image.title }}" />
           </a>
+          <button class="btn">
+            <a href="{{site.pdf_dir_url}}/{{image.filename}}?raw=true" download>
+              <i class="fa fa-download"></i>
+            </a>
+          </button>
           <h2>{{ image.title }}</h2>
           <p>{{ image.caption }}</p>
         </article>
