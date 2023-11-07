@@ -39,6 +39,26 @@
 				top: 0;
 				width: 100%;
 			}
+			> .btn {
+				@include vendor('transition', (
+					'color #{_duration(transition)} ease-in-out'
+				));
+				box-shadow: none;
+				color: _palette(bg-bold) !important;
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				font-size: 1em;
+				padding: 1ex;
+				height: auto;
+				line-height: 1;
+				a, a:visited, a:hover, a:active { /* https://stackoverflow.com/a/8014032/14967071 */
+					color: inherit;
+				}
+				&:hover {
+					color: _palette(accent1) !important;
+				}
+			}
 
 			> .image {
 				-webkit-tap-highlight-color: rgba(255,255,255,0);
