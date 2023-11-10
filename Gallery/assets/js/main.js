@@ -214,6 +214,7 @@
 
 				var	$this = $(this),
 					$image = $this.find('.image'), $image_img = $image.children('img'),
+					$modal = $this.find('.modal'),
 					x;
 
 				// No image? Bail.
@@ -234,6 +235,8 @@
 					// Hide original img.
 						$image_img.hide();
 
+				// EgrModal.
+					$modal.egrModal();
 			});
 
 		// Poptrox.

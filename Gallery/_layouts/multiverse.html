@@ -15,11 +15,18 @@
           <a href="{{site.baseurl}}/assets/images/fulls/{{ image.path | split: '/' | last | split: '.' | first }}.jpg" class="image">
             <img src="{{site.baseurl}}/assets/images/thumbs/{{ image.path | split: '/' | last | split: '.' | first }}.jpg" alt="{{ image.title }}" />
           </a>
-          <button class="btn">
+
+          <div class="modal" id="{{ image.path | split: '/' | last | split: '.' | first }}">
+            <h2>I'm a modal panel!</h2>
+            <p>Some interesting content.</p>
+            <p>Even more interesting content.</p>
+            <p>{{ image.path | split: '/' | last | split: '.' | first }}</p>
             <a href="{{site.pdf_dir_url}}/{{image.filename}}?raw=true" download>
               <i class="fa fa-download"></i>
             </a>
-          </button>
+          </div>
+          <button class="modal-open" id="modal-open-{{ image.path | split: '/' | last | split: '.' | first }}"><i class="fa fa-download"></i></button>
+
           <h2>{{ image.title }}</h2>
           <p>{{ image.caption }}</p>
         </article>
@@ -35,6 +42,7 @@
 
     <script src="{{ 'assets/js/jquery.min.js' | relative_url }}"></script>
     <script src="{{ 'assets/js/jquery.poptrox.min.js' | relative_url }}"></script>
+    <script src="{{ 'assets/js/jquery.egrModal.js' | relative_url }}"></script>
     <script src="{{ 'assets/js/browser.min.js' | relative_url }}"></script>
     <script src="{{ 'assets/js/breakpoints.min.js' | relative_url }}"></script>
     <script src="{{ 'assets/js/util.js' | relative_url }}"></script>

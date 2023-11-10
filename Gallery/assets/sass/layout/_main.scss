@@ -39,7 +39,8 @@
 				top: 0;
 				width: 100%;
 			}
-			> .btn {
+
+			> .modal-open {
 				@include vendor('transition', (
 					'color #{_duration(transition)} ease-in-out'
 				));
@@ -195,4 +196,78 @@
 				);
 			}
 
+	}
+
+/* EgrModal */
+
+	.overlay {
+		background: #333;
+		opacity: 0.8;
+		z-index: 1000;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
+	.modal {
+		background: #fff;
+		z-index: 1001;
+		width: 60%;
+		height: auto;
+		padding: 20px;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		box-shadow: 3px 3px 20px #000;
+	}
+
+	.close-button {
+		@include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
+		background-image: url('images/close.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 3em;
+		cursor: pointer;
+		height: 5em;
+		opacity: 0.33;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 5em;
+		box-shadow: none;
+		z-index: 1002;
+
+		&:hover {
+			box-shadow: none;
+			opacity: 1.0;
+		}
+
+		&.loading {
+			&:before {
+				opacity: 0;
+			}
+		}
+
+		body.touch & {
+			.close-button {
+				opacity: 1.0 !important;
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			.close-button {
+				background-size: 3em;
+			}
+		}
+
+		@include breakpoint('<=small') {
+			&:before {
+				display: none;
+			}
+			.close-button {
+				display: none !important;
+			}
+		}
 	}
