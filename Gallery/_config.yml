@@ -13,7 +13,9 @@ social:
   github: joaomlneto
   linkedin:
 
+repository: https://github.com/AxelKrypton/Columbia-plots-and-alikes
 pdf_dir_url: https://github.com/AxelKrypton/Columbia-plots-and-alikes/blob/main/Pdf
+svg_dir_url: https://github.com/AxelKrypton/Columbia-plots-and-alikes/blob/main/Svg
 
 # Build settings
 markdown: kramdown
@@ -28,3 +30,5 @@ collections:
 sass:
   sass_dir: assets/sass
   style: expanded
+
+encoding: utf-8

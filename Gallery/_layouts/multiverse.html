@@ -17,13 +17,19 @@
           </a>
 
           <div class="modal" id="{{ image.path | split: '/' | last | split: '.' | first }}">
-            <h2>I'm a modal panel!</h2>
-            <p>Some interesting content.</p>
-            <p>Even more interesting content.</p>
-            <p>{{ image.path | split: '/' | last | split: '.' | first }}</p>
-            <a href="{{site.pdf_dir_url}}/{{image.filename}}?raw=true" download>
-              <i class="fa fa-download"></i>
-            </a>
+            <h1>FAIR science!</h1>
+            <p>
+              By downloading, possibly modifying and using the image in future publications, presentations, lectures and alikes,
+              you undertake to cite the authors as appropriate, i.e. as described <a href="{{site.repository}}">here</a>.
+            </p>
+            <div style="text-align: center">
+              <a class="download-button" href="{{site.pdf_dir_url}}/{{image.pdf_file}}?raw=true" download>
+                <i class="fa fa-download"></i> .pdf
+              </a>
+              <a class="download-button" href="{{site.svg_dir_url}}/{{image.svg_file}}" download>
+                <i class="fa fa-file-image"></i> .svg
+              </a>
+            </div>
           </div>
           <button class="modal-open" id="modal-open-{{ image.path | split: '/' | last | split: '.' | first }}"><i class="fa fa-download"></i></button>
 
