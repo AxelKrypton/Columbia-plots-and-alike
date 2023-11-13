@@ -19,8 +19,8 @@ svg_dir_url: https://github.com/AxelKrypton/Columbia-plots-and-alikes/blob/main/
 
 # References (they require '| markdownify' to be rendered in HTML)
 ref:
-  - "[[1]](https://github.com/AxelKrypton/PhD_Thesis/blob/main/Sciarra_Thesis_digital.pdf)"
-  - "[[2]](https://arxiv.org/pdf/2107.12739.pdf)" # Cuteri, Philipsen, Sciarra paper
+  - "[Alessandro Sciarra's Ph.D. thesis (2016)](https://github.com/AxelKrypton/PhD_Thesis/blob/main/Sciarra_Thesis_digital.pdf)"
+  - "[Cuteri, Philipsen, Sciarra (2021)](https://arxiv.org/pdf/2107.12739.pdf)" # Cuteri, Philipsen, Sciarra paper
 
 # Build settings
 markdown: kramdown
