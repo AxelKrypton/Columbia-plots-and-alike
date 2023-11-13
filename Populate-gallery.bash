@@ -82,273 +82,282 @@ readonly images=(
 #    'RW_zero_mass_2order'
 )
 
+function Refer_To_Figure()
+{
+    local -r prefix=${1- } ref=${3:-0}
+    if [[ ! ${ref} =~ ^[01]$ ]]; then
+        printf "\n\e[91m Invalid reference '${ref}' passed to ${FUNCNAME}.\n" >&2
+    fi
+    printf '%sFigure %s of {{ site.ref[%d] }}.' "${prefix}" "$2" "${ref}"
+}
+
 declare -rgA CP_1order=(
-    [title]=''
-    [caption]=''
+    [title]='Columbia plot on coarse lattices'
+    [caption]="$(Refer_To_Figure '' '1' '1')"
     [pdf_file]='CP_1-order.pdf'
     [svg_file]=''
 )
 declare -rgA CP_1order_hole=(
-    [title]=''
-    [caption]=''
+    [title]='Fancy Columbia plot scenario'
+    [caption]="$(Refer_To_Figure 'Refined version of' '2.5(c)' '')"
     [pdf_file]='CP_1-order_hole.pdf'
     [svg_file]=''
 )
 declare -rgA CP_1order_hole_with_Nf3=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_1-order_hole_with_Nf3.pdf'
     [svg_file]=''
 )
 declare -rgA CP_1order_with_Nf3=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_1-order_with_Nf3.pdf'
     [svg_file]=''
 )
 declare -rgA CP_2order=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_2-order.pdf'
     [svg_file]=''
 )
 declare -rgA CP_2order_all=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_2-order_all.pdf'
     [svg_file]=''
 )
 declare -rgA CP_2order_all_with_Nf3=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_2-order_all_with_Nf3.pdf'
     [svg_file]=''
 )
 declare -rgA CP_2order_with_Nf3=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_2-order_with_Nf3.pdf'
     [svg_file]=''
 )
 declare -rgA CP_3D_1order=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_3D_1-order.pdf'
     [svg_file]=''
 )
 declare -rgA CP_3D_1order_backplane=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_3D_1-order_backplane.pdf'
     [svg_file]=''
 )
 declare -rgA CP_3D_2order=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_3D_2-order.pdf'
     [svg_file]=''
 )
 declare -rgA CP_3D_2order_all=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_3D_2-order_all.pdf'
     [svg_file]=''
 )
 declare -rgA CP_3D_2order_backplane=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_3D_2-order_backplane.pdf'
     [svg_file]=''
 )
 declare -rgA CP_3D_2order_full_backplane=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_3D_2-order_full_backplane.pdf'
     [svg_file]=''
 )
 declare -rgA CP_RW=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_RW.pdf'
     [svg_file]=''
 )
 declare -rgA CP_blur=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='CP_blur.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2p1=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_Nf2+1.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2p1_massless_ud=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_Nf2+1_massless_ud.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2_massive=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_Nf2_massive.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2_massless_A=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_Nf2_massless_A.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2_massless_B=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_Nf2_massless_B.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2_massless_C=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_Nf2_massless_C.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2_massless_D=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_Nf2_massless_D.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2_massless_E=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_Nf2_massless_E.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2_massless_F=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_Nf2_massless_F.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_experiments=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_experiments.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_experiments_blur=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='QCD_experiments_blur.pdf'
     [svg_file]=''
 )
 declare -rgA RW_T_mass_plane=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_T_mass_plane.pdf'
     [svg_file]=''
 )
 declare -rgA RW_T_mu_mass_diagram_1order=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_T_mu_mass_diagram_1-order.pdf'
     [svg_file]=''
 )
 declare -rgA RW_T_mu_mass_diagram_2order=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_T_mu_mass_diagram_2-order.pdf'
     [svg_file]=''
 )
 declare -rgA RW_T_mu_plane=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_T_mu_plane.pdf'
     [svg_file]=''
 )
 declare -rgA RW_Zero_mass_1order=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_Zero_mass_1-order.pdf'
     [svg_file]=''
 )
 declare -rgA RW_high_mass=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_high_mass.pdf'
     [svg_file]=''
 )
 declare -rgA RW_high_mass_with_co=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_high_mass_with_c-o.pdf'
     [svg_file]=''
 )
 declare -rgA RW_low_mass=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_low_mass.pdf'
     [svg_file]=''
 )
 declare -rgA RW_low_mass_with_co=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_low_mass_with_c-o.pdf'
     [svg_file]=''
 )
 declare -rgA RW_middle_mass=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_middle_mass.pdf'
     [svg_file]=''
 )
 declare -rgA RW_middle_mass_with_co=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_middle_mass_with_c-o.pdf'
     [svg_file]=''
 )
 declare -rgA RW_tric_high_mass=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_tric_high_mass.pdf'
     [svg_file]=''
 )
 declare -rgA RW_tric_high_mass_with_co=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_tric_high_mass_with_c-o.pdf'
     [svg_file]=''
 )
 declare -rgA RW_tric_low_mass=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_tric_low_mass.pdf'
     [svg_file]=''
 )
 declare -rgA RW_tric_low_mass_with_co=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_tric_low_mass_with_c-o.pdf'
     [svg_file]=''
 )
 declare -rgA RW_very_high_mass=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_very_high_mass.pdf'
     [svg_file]=''
 )
 declare -rgA RW_very_low_mass=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_very_low_mass.pdf'
     [svg_file]=''
 )
 declare -rgA RW_zero_mass_2order=(
     [title]=''
-    [caption]=''
+    [caption]="$(Refer_To_Figure '' '' '')"
     [pdf_file]='RW_zero_mass_2-order.pdf'
     [svg_file]=''
 )
