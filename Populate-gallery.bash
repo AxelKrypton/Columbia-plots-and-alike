@@ -1,4 +1,4 @@
-#!/bin/usr/env bash
+#!/usr/bin/env bash
 
 #------------------------------------------------------------------------------#
 # (c) 2023 Alessandro Sciarra <sciarra@itp.uni-frankfurt.de>
@@ -18,114 +18,172 @@
 #  - the names of the arrays are stored in another array which
 #    determines the order of the images in the website.
 #------------------------------------------------------------------------------#
+set -euo pipefail
+shopt -s inherit_errexit
+trap 'printf "\n"' EXIT
 
+for prog in git pdflatex pdftoppm; do
+    if ! hash "${prog}"; then
+        printf "\e[91m Program ${prog} not found, but needed.\n"
+        exit 1
+    fi
+done
+
+readonly script_path=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+readonly pdf_folder_path="${script_path}/Pdf"
+readonly images_thumb_folder_path="${script_path}/assets/images/thumbs"
+readonly images_full_folder_path="${script_path}/assets/images/fulls"
 readonly images=(
-
+    'CP_1order'
+    'CP_1order_hole'
+#    'CP_1order_hole_with_Nf3'
+#    'CP_1order_with_Nf3'
+#    'CP_2order'
+#    'CP_2order_all'
+#    'CP_2order_all_with_Nf3'
+#    'CP_2order_with_Nf3'
+#    'CP_3D_1order'
+#    'CP_3D_1order_backplane'
+#    'CP_3D_2order'
+#    'CP_3D_2order_all'
+#    'CP_3D_2order_backplane'
+#    'CP_3D_2order_full_backplane'
+#    'CP_RW'
+#    'CP_blur'
+#    'QCD_Nf2p1'
+#    'QCD_Nf2p1_massless_ud'
+#    'QCD_Nf2_massive'
+#    'QCD_Nf2_massless_A'
+#    'QCD_Nf2_massless_B'
+#    'QCD_Nf2_massless_C'
+#    'QCD_Nf2_massless_D'
+#    'QCD_Nf2_massless_E'
+#    'QCD_Nf2_massless_F'
+#    'QCD_experiments'
+#    'QCD_experiments_blur'
+#    'RW_T_mass_plane'
+#    'RW_T_mu_mass_diagram_1order'
+#    'RW_T_mu_mass_diagram_2order'
+#    'RW_T_mu_plane'
+#    'RW_Zero_mass_1order'
+#    'RW_high_mass'
+#    'RW_high_mass_with_co'
+#    'RW_low_mass'
+#    'RW_low_mass_with_co'
+#    'RW_middle_mass'
+#    'RW_middle_mass_with_co'
+#    'RW_tric_high_mass'
+#    'RW_tric_high_mass_with_co'
+#    'RW_tric_low_mass'
+#    'RW_tric_low_mass_with_co'
+#    'RW_very_high_mass'
+#    'RW_very_low_mass'
+#    'RW_zero_mass_2order'
 )
 
-declare -rgA ColumbiaPlot=(
+declare -rgA CP_1order=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot.pdf'
+    [pdf_file]='CP_1-order.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot3D_1scenario=(
+declare -rgA CP_1order_hole=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot3D_1scenario.pdf'
+    [pdf_file]='CP_1-order_hole.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot3D_O4scenario=(
+declare -rgA CP_1order_hole_with_Nf3=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot3D_O4scenario.pdf'
+    [pdf_file]='CP_1-order_hole_with_Nf3.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot3D_O4scenario_all=(
+declare -rgA CP_1order_with_Nf3=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot3D_O4scenario_all.pdf'
+    [pdf_file]='CP_1-order_with_Nf3.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot3D_O4scenario_full_backplane=(
+declare -rgA CP_2order=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot3D_O4scenario_full_backplane.pdf'
+    [pdf_file]='CP_2-order.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlotRW=(
+declare -rgA CP_2order_all=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlotRW.pdf'
+    [pdf_file]='CP_2-order_all.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot_1scenario=(
+declare -rgA CP_2order_all_with_Nf3=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot_1scenario.pdf'
+    [pdf_file]='CP_2-order_all_with_Nf3.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot_1scenario_hole=(
+declare -rgA CP_2order_with_Nf3=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot_1scenario_hole.pdf'
+    [pdf_file]='CP_2-order_with_Nf3.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot_1scenario_hole_withNf3=(
+declare -rgA CP_3D_1order=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot_1scenario_hole_withNf3.pdf'
+    [pdf_file]='CP_3D_1-order.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot_1scenario_withNf3=(
+declare -rgA CP_3D_1order_backplane=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot_1scenario_withNf3.pdf'
+    [pdf_file]='CP_3D_1-order_backplane.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot_Backplane_1scenario=(
+declare -rgA CP_3D_2order=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot_Backplane_1scenario.pdf'
+    [pdf_file]='CP_3D_2-order.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot_Backplane_O4=(
+declare -rgA CP_3D_2order_all=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot_Backplane_O4.pdf'
+    [pdf_file]='CP_3D_2-order_all.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot_O4scenario=(
+declare -rgA CP_3D_2order_backplane=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot_O4scenario.pdf'
+    [pdf_file]='CP_3D_2-order_backplane.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot_O4scenario_all=(
+declare -rgA CP_3D_2order_full_backplane=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot_O4scenario_all.pdf'
+    [pdf_file]='CP_3D_2-order_full_backplane.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot_O4scenario_all_withNf3=(
+declare -rgA CP_RW=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot_O4scenario_all_withNf3.pdf'
+    [pdf_file]='CP_RW.pdf'
     [svg_file]=''
 )
-declare -rgA ColumbiaPlot_O4scenario_withNf3=(
+declare -rgA CP_blur=(
     [title]=''
     [caption]=''
-    [pdf_file]='ColumbiaPlot_O4scenario_withNf3.pdf'
+    [pdf_file]='CP_blur.pdf'
     [svg_file]=''
 )
-declare -rgA QCD_Nf2+1=(
+declare -rgA QCD_Nf2p1=(
     [title]=''
     [caption]=''
     [pdf_file]='QCD_Nf2+1.pdf'
     [svg_file]=''
 )
-declare -rgA QCD_Nf2+1_massless_ud=(
+declare -rgA QCD_Nf2p1_massless_ud=(
     [title]=''
     [caption]=''
     [pdf_file]='QCD_Nf2+1_massless_ud.pdf'
@@ -137,40 +195,40 @@ declare -rgA QCD_Nf2_massive=(
     [pdf_file]='QCD_Nf2_massive.pdf'
     [svg_file]=''
 )
-declare -rgA QCD_Nf2_masslessA=(
+declare -rgA QCD_Nf2_massless_A=(
     [title]=''
     [caption]=''
-    [pdf_file]='QCD_Nf2_masslessA.pdf'
+    [pdf_file]='QCD_Nf2_massless_A.pdf'
     [svg_file]=''
 )
-declare -rgA QCD_Nf2_masslessB=(
+declare -rgA QCD_Nf2_massless_B=(
     [title]=''
     [caption]=''
-    [pdf_file]='QCD_Nf2_masslessB.pdf'
+    [pdf_file]='QCD_Nf2_massless_B.pdf'
     [svg_file]=''
 )
-declare -rgA QCD_Nf2_masslessC=(
+declare -rgA QCD_Nf2_massless_C=(
     [title]=''
     [caption]=''
-    [pdf_file]='QCD_Nf2_masslessC.pdf'
+    [pdf_file]='QCD_Nf2_massless_C.pdf'
     [svg_file]=''
 )
-declare -rgA QCD_Nf2_masslessD=(
+declare -rgA QCD_Nf2_massless_D=(
     [title]=''
     [caption]=''
-    [pdf_file]='QCD_Nf2_masslessD.pdf'
+    [pdf_file]='QCD_Nf2_massless_D.pdf'
     [svg_file]=''
 )
-declare -rgA QCD_Nf2_masslessE=(
+declare -rgA QCD_Nf2_massless_E=(
     [title]=''
     [caption]=''
-    [pdf_file]='QCD_Nf2_masslessE.pdf'
+    [pdf_file]='QCD_Nf2_massless_E.pdf'
     [svg_file]=''
 )
-declare -rgA QCD_Nf2_masslessF=(
+declare -rgA QCD_Nf2_massless_F=(
     [title]=''
     [caption]=''
-    [pdf_file]='QCD_Nf2_masslessF.pdf'
+    [pdf_file]='QCD_Nf2_massless_F.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_experiments=(
@@ -185,40 +243,22 @@ declare -rgA QCD_experiments_blur=(
     [pdf_file]='QCD_experiments_blur.pdf'
     [svg_file]=''
 )
-declare -rgA RW_HighMass=(
+declare -rgA RW_T_mass_plane=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_HighMass.pdf'
+    [pdf_file]='RW_T_mass_plane.pdf'
     [svg_file]=''
 )
-declare -rgA RW_HighMassWithCrossover=(
+declare -rgA RW_T_mu_mass_diagram_1order=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_HighMassWithCrossover.pdf'
+    [pdf_file]='RW_T_mu_mass_diagram_1-order.pdf'
     [svg_file]=''
 )
-declare -rgA RW_IntermidiateMass=(
+declare -rgA RW_T_mu_mass_diagram_2order=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_IntermidiateMass.pdf'
-    [svg_file]=''
-)
-declare -rgA RW_IntermidiateMassWithCrossover=(
-    [title]=''
-    [caption]=''
-    [pdf_file]='RW_IntermidiateMassWithCrossover.pdf'
-    [svg_file]=''
-)
-declare -rgA RW_LowMass=(
-    [title]=''
-    [caption]=''
-    [pdf_file]='RW_LowMass.pdf'
-    [svg_file]=''
-)
-declare -rgA RW_LowMassWithCrossover=(
-    [title]=''
-    [caption]=''
-    [pdf_file]='RW_LowMassWithCrossover.pdf'
+    [pdf_file]='RW_T_mu_mass_diagram_2-order.pdf'
     [svg_file]=''
 )
 declare -rgA RW_T_mu_plane=(
@@ -227,78 +267,108 @@ declare -rgA RW_T_mu_plane=(
     [pdf_file]='RW_T_mu_plane.pdf'
     [svg_file]=''
 )
-declare -rgA RW_Tmass_plane=(
+declare -rgA RW_Zero_mass_1order=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_Tmass_plane.pdf'
+    [pdf_file]='RW_Zero_mass_1-order.pdf'
     [svg_file]=''
 )
-declare -rgA RW_Tmumass_diagram=(
+declare -rgA RW_high_mass=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_Tmumass_diagram.pdf'
+    [pdf_file]='RW_high_mass.pdf'
     [svg_file]=''
 )
-declare -rgA RW_Tmumass_diagram_O4=(
+declare -rgA RW_high_mass_with_co=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_Tmumass_diagram_O4.pdf'
+    [pdf_file]='RW_high_mass_with_c-o.pdf'
     [svg_file]=''
 )
-declare -rgA RW_TricriticalHighMass=(
+declare -rgA RW_low_mass=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_TricriticalHighMass.pdf'
+    [pdf_file]='RW_low_mass.pdf'
     [svg_file]=''
 )
-declare -rgA RW_TricriticalHighMassWithCrossover=(
+declare -rgA RW_low_mass_with_co=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_TricriticalHighMassWithCrossover.pdf'
+    [pdf_file]='RW_low_mass_with_c-o.pdf'
     [svg_file]=''
 )
-declare -rgA RW_TricriticalLowMass=(
+declare -rgA RW_middle_mass=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_TricriticalLowMass.pdf'
+    [pdf_file]='RW_middle_mass.pdf'
     [svg_file]=''
 )
-declare -rgA RW_TricriticalLowMassWithCrossover=(
+declare -rgA RW_middle_mass_with_co=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_TricriticalLowMassWithCrossover.pdf'
+    [pdf_file]='RW_middle_mass_with_c-o.pdf'
     [svg_file]=''
 )
-declare -rgA RW_VeryHighMass=(
+declare -rgA RW_tric_high_mass=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_VeryHighMass.pdf'
+    [pdf_file]='RW_tric_high_mass.pdf'
     [svg_file]=''
 )
-declare -rgA RW_VeryLowMass=(
+declare -rgA RW_tric_high_mass_with_co=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_VeryLowMass.pdf'
+    [pdf_file]='RW_tric_high_mass_with_c-o.pdf'
     [svg_file]=''
 )
-declare -rgA RW_ZeroMass=(
+declare -rgA RW_tric_low_mass=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_ZeroMass.pdf'
+    [pdf_file]='RW_tric_low_mass.pdf'
     [svg_file]=''
 )
-declare -rgA RW_ZeroMass_O4=(
+declare -rgA RW_tric_low_mass_with_co=(
     [title]=''
     [caption]=''
-    [pdf_file]='RW_ZeroMass_O4.pdf'
+    [pdf_file]='RW_tric_low_mass_with_c-o.pdf'
+    [svg_file]=''
+)
+declare -rgA RW_very_high_mass=(
+    [title]=''
+    [caption]=''
+    [pdf_file]='RW_very_high_mass.pdf'
+    [svg_file]=''
+)
+declare -rgA RW_very_low_mass=(
+    [title]=''
+    [caption]=''
+    [pdf_file]='RW_very_low_mass.pdf'
+    [svg_file]=''
+)
+declare -rgA RW_zero_mass_2order=(
+    [title]=''
+    [caption]=''
+    [pdf_file]='RW_zero_mass_2-order.pdf'
     [svg_file]=''
 )
 
+function Convert_PDF_to_JPG()
+{
+    local -r pdf_file="$1" jpg_file="$2"
+    pdftoppm -jpeg -r 300 -singlefile "${pdf_file}" "${jpg_file}"
+}
 
-
-
-# Compile each pdf into another one with white background
-cat <<TEX
+function Create_Thumbnail()
+{
+    local pdf_filename output_number tmp_folder tex_file
+    pdf_filename="$1"
+    output_number="$2"
+    tmp_folder=$(mktemp -d)
+    tex_file='tmp.tex'
+    cd "${tmp_folder}"
+    cp "${pdf_folder_path}/${pdf_filename}" .
+    # Compile each pdf into another one with white background
+    cat > "${tex_file}" <<TEX
 \documentclass{article}
 \usepackage{graphicx,tikz}
 \usepackage[paperwidth=12cm, paperheight=8cm]{geometry}
@@ -306,13 +376,37 @@ cat <<TEX
 \begin{document}
     \thispagestyle{empty}
     \begin{tikzpicture}[remember picture, overlay]
-        \node[yshift=3mm] at (current page.center){\includegraphics[width=0.75\textwidth]{Pdf/ColumbiaPlot}};
+        \node[yshift=3mm] at (current page.center){\includegraphics[width=0.75\textwidth]{${pdf_filename}}};
     \end{tikzpicture}
 \end{document}
 TEX
+    # Compile PDF into new one with correct dimensions and then convert it to JPG, moving it to the correct place
+    pdflatex -interaction=batchmode "${tex_file}"
+    Convert_PDF_to_JPG "${tex_file/%.tex/.pdf}" "${output_number}"
+    mv "${output_number}.jpg" "${images_thumb_folder_path}"
+    # Convert the full image, too
+    Convert_PDF_to_JPG "${pdf_filename}" "${output_number}"
+    mv "${output_number}.jpg" "${images_full_folder_path}"
+    cd "${script_path}"
+}
 
-# Convert pdf into jpeg
-#
-# pdftoppm -jpeg -r 300 test.pdf output
 
+# Since the webpage is on an orphan branch and the PDF files on main, we need
+# to switch branch and then we can simply put files in the correct folders and
+# then in the end switch back to the gh-pages branch
+git switch main
 
+counter=1
+readonly number_of_digits=${#images[@]}
+for image in "${images[@]}"; do
+    if ! declare -p "${image}" &>/dev/null; then
+        printf "\e[93mWARNING: Metadata '${image}' not found, skipping image!\e[0m\n"
+        continue
+    fi
+    declare -n array_ref=${image}
+    number=$(printf '%0*d' ${number_of_digits} ${counter})
+    printf "\e[92mINFO: Image '${image}' will be added to gallery as image number ${number}...\e[0m"
+    Create_Thumbnail "${array_ref[pdf_file]}" ${number}
+    printf "\e[96m done!\e[0m\n"
+    (( counter++ ))
+done
