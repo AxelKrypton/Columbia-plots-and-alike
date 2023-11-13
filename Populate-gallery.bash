@@ -22,7 +22,7 @@ set -euo pipefail
 shopt -s inherit_errexit
 trap 'printf "\n"' EXIT
 
-for prog in git pdflatex pdftoppm; do
+for prog in git latexmk pdftoppm; do
     if ! hash "${prog}"; then
         printf "\e[91m Program ${prog} not found, but needed.\n"
         exit 1
@@ -33,6 +33,7 @@ readonly script_path=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null
 readonly pdf_folder_path="${script_path}/Pdf"
 readonly images_thumb_folder_path="${script_path}/assets/images/thumbs"
 readonly images_full_folder_path="${script_path}/assets/images/fulls"
+readonly images_metadata_folder_path="${script_path}/_images"
 readonly images=(
     'CP_1order'
     'CP_1order_hole'
@@ -381,23 +382,40 @@ function Create_Thumbnail()
 \end{document}
 TEX
     # Compile PDF into new one with correct dimensions and then convert it to JPG, moving it to the correct place
-    pdflatex -interaction=batchmode "${tex_file}"
+    latexmk -pdf -quiet "${tex_file}" &> /dev/null
     Convert_PDF_to_JPG "${tex_file/%.tex/.pdf}" "${output_number}"
     mv "${output_number}.jpg" "${images_thumb_folder_path}"
     # Convert the full image, too
     Convert_PDF_to_JPG "${pdf_filename}" "${output_number}"
     mv "${output_number}.jpg" "${images_full_folder_path}"
     cd "${script_path}"
+    rm -r "${tmp_folder}"
 }
 
+function Create_Image_Metadata_File()
+{
+    local -r output_number="$1"
+    local field
+    {
+        printf '%s\n' '---'
+        for field in title caption {pdf,svg}_file; do
+            printf "${field}: ${array_ref[${field}]}\n"
+        done
+        printf '%s\n' '---'
+    } > "${images_metadata_folder_path}/${output_number}.md"
+}
 
-# Since the webpage is on an orphan branch and the PDF files on main, we need
-# to switch branch and then we can simply put files in the correct folders and
-# then in the end switch back to the gh-pages branch
-git switch main
+# Since the webpage is on an orphan branch and the PDF files on main, we'd need
+# to switch branch. However, if we then simply put files in the correct folders,
+# it would be basically difficult to switch back overwriting existing branches in
+# the orphan branch. Hence, we stay on the orphan branch and we get the Pdf folder
+# from main, unstage it (checkout automatically stages) and then work and delete it.
+git checkout main -- Pdf
+git restore -S Pdf
 
 counter=1
 readonly number_of_digits=${#images[@]}
+printf '\n'
 for image in "${images[@]}"; do
     if ! declare -p "${image}" &>/dev/null; then
         printf "\e[93mWARNING: Metadata '${image}' not found, skipping image!\e[0m\n"
@@ -405,8 +423,12 @@ for image in "${images[@]}"; do
     fi
     declare -n array_ref=${image}
     number=$(printf '%0*d' ${number_of_digits} ${counter})
-    printf "\e[92mINFO: Image '${image}' will be added to gallery as image number ${number}...\e[0m"
+    printf "\n\n\n\e[3A\e[92mINFO: Image ${number} will be added to gallery$(tput sc) -> ${image})...\e[0m"
     Create_Thumbnail "${array_ref[pdf_file]}" ${number}
-    printf "\e[96m done!\e[0m\n"
+    Create_Image_Metadata_File ${number}
+    printf "$(tput rc)\e[K\e[96m ...done!\e[0m\n"
     (( counter++ ))
 done
+
+# Remove Pdf folder
+git clean -f -- Pdf > /dev/null
