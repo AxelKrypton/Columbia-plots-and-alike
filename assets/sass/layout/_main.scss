@@ -28,7 +28,8 @@
 			position: relative;
 
 			&:after {
-				@include vendor('background-image', 'linear-gradient(to bottom, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 100%)');
+				/*rgba(0,0,0,alpha) is black from transparent (alpha=0) to opaque (alpha=1)*/
+				@include vendor('background-image', 'linear-gradient(45deg, rgba(0,0,0,0.35), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.35))');
 				@include vendor('pointer-events', 'none');
 				background-size: cover;
 				content: '';
