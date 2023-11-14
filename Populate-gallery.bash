@@ -94,7 +94,7 @@ declare -rgA CP_1order_with_Nf3=(
     [svg_file]=''
 )
 declare -rgA CP_2order_with_Nf3=(
-    [title]='Columbia plot standard second order scenario with Nf=3 line'
+    [title]='Columbia plot historical second order scenario'
     [caption]="$(Refer_To_Figure '' '' '' '')"
     [pdf_file]='CP_2-order_with_Nf3.pdf'
     [svg_file]=''
