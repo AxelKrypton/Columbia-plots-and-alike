@@ -35,6 +35,7 @@ readonly images_thumb_folder_path="${script_path}/assets/images/thumbs"
 readonly images_full_folder_path="${script_path}/assets/images/fulls"
 readonly images_metadata_folder_path="${script_path}/_images"
 readonly images=(
+    'CP_blur'
     'CP_2order_all_with_Nf3'
     'CP_2order_with_Nf3'
     'CP_1order_with_Nf3'
@@ -45,8 +46,16 @@ readonly images=(
 #    'CP_3D_2order_all'
 #    'CP_3D_2order_backplane'
 #    'CP_3D_2order_full_backplane'
+#    'CP-like_Wilson.pdf'
+#    'CP-like_a-m.pdf'
+#    'CP-like_m-Nf_2-order.pdf'
 #    'CP_RW'
-#    'CP_blur'
+#    'LCP_1-order.pdf'
+#    'LCP_2-order.pdf'
+#    'PD_T-m-Nf.pdf'
+#    'PD_T-m-Nf_no-surface.pdf'
+#    'PD_T-m.pdf'
+#    'PD_Wilson.pdf'
 #    'QCD_Nf2p1'
 #    'QCD_Nf2p1_massless_ud'
 #    'QCD_Nf2_massive'
@@ -111,6 +120,12 @@ declare -rgA CP_1order_hole_with_Nf3=(
     [pdf_file]='CP_1-order_hole_with_Nf3.pdf'
     [svg_file]=''
 )
+declare -rgA CP_blur=(
+    [title]='Columbia plot historical dilemma'
+    [caption]="$(Refer_To_Figure 'Refined version of' '2.4' '' '')"
+    [pdf_file]='CP_blur.pdf'
+    [svg_file]=''
+)
 declare -rgA CP_3D_1order=(
     [title]=''
     [caption]="$(Refer_To_Figure '' '' '' '')"
@@ -147,16 +162,64 @@ declare -rgA CP_3D_2order_full_backplane=(
     [pdf_file]='CP_3D_2-order_full_backplane.pdf'
     [svg_file]=''
 )
+declare -rgA CPlike_Wilson=(
+    [title]=''
+    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [pdf_file]='CP-like_Wilson.pdf'
+    [svg_file]=''
+)
+declare -rgA CPlike_a_m=(
+    [title]=''
+    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [pdf_file]='CP-like_a-m.pdf'
+    [svg_file]=''
+)
+declare -rgA CPlike_m_Nf_2order=(
+    [title]=''
+    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [pdf_file]='CP-like_m-Nf_2-order.pdf'
+    [svg_file]=''
+)
 declare -rgA CP_RW=(
     [title]=''
     [caption]="$(Refer_To_Figure '' '' '' '')"
     [pdf_file]='CP_RW.pdf'
     [svg_file]=''
 )
-declare -rgA CP_blur=(
+declare -rgA LCP_1order=(
     [title]=''
     [caption]="$(Refer_To_Figure '' '' '' '')"
-    [pdf_file]='CP_blur.pdf'
+    [pdf_file]='LCP_1-order.pdf'
+    [svg_file]=''
+)
+declare -rgA LCP_2order=(
+    [title]=''
+    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [pdf_file]='LCP_2-order.pdf'
+    [svg_file]=''
+)
+declare -rgA PD_T_m_Nf=(
+    [title]=''
+    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [pdf_file]='PD_T-m-Nf.pdf'
+    [svg_file]=''
+)
+declare -rgA PD_T_m_Nf_no_surface=(
+    [title]=''
+    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [pdf_file]='PD_T-m-Nf_no-surface.pdf'
+    [svg_file]=''
+)
+declare -rgA PD_T_m=(
+    [title]=''
+    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [pdf_file]='PD_T-m.pdf'
+    [svg_file]=''
+)
+declare -rgA PD_Wilson=(
+    [title]=''
+    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [pdf_file]='PD_Wilson.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2p1=(
