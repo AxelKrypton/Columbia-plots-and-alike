@@ -47,24 +47,25 @@ readonly images=(
     'CP_3D_2order_full_backplane'
     'CP_3D_1order_backplane'
     'CP_3D_2order_backplane'
+    'CPlike_m_Nf_1order'
+    'CPlike_m_Nf_2order'
+#    'CP-like_a-m'
 #    'CP-like_Wilson.pdf'
-#    'CP-like_a-m.pdf'
-#    'CP-like_m-Nf_2-order.pdf'
 #    'LCP_1-order.pdf'
 #    'LCP_2-order.pdf'
 #    'PD_T-m-Nf.pdf'
 #    'PD_T-m-Nf_no-surface.pdf'
 #    'PD_T-m.pdf'
 #    'PD_Wilson.pdf'
-#    'QCD_Nf2p1'
-#    'QCD_Nf2p1_massless_ud'
-#    'QCD_Nf2_massive'
-#    'QCD_Nf2_massless_A'
-#    'QCD_Nf2_massless_B'
-#    'QCD_Nf2_massless_C'
-#    'QCD_Nf2_massless_D'
-#    'QCD_Nf2_massless_E'
-#    'QCD_Nf2_massless_F'
+    'QCD_Nf2_massive'
+    'QCD_Nf2_massless_A'
+    'QCD_Nf2_massless_B'
+    'QCD_Nf2_massless_C'
+    'QCD_Nf2_massless_D'
+    'QCD_Nf2_massless_E'
+    'QCD_Nf2_massless_F'
+    'QCD_Nf2p1'
+    'QCD_Nf2p1_massless_ud'
 #    'QCD_experiments'
 #    'QCD_experiments_blur'
 #    'RW_T_mass_plane'
@@ -90,7 +91,7 @@ readonly images=(
 function Refer_To_Figure()
 {
     local -r prefix=${1- } ref=${3:-0} postfix=${4-}
-    if [[ ! ${ref} =~ ^[01]$ ]]; then
+    if [[ ! ${ref} =~ ^[0-2]$ ]]; then
         printf "\n\e[91m Invalid reference '${ref}' passed to ${FUNCNAME}.\n" >&2
     fi
     printf '%sFigure %s of {{ site.ref[%d] }}%s.' "${prefix}" "$2" "${ref}" "${postfix}"
@@ -181,7 +182,7 @@ declare -rgA CPlike_m_Nf_1order=(
     [svg_file]=''
 )
 declare -rgA CPlike_m_Nf_2order=(
-    [title]='Columbia plot for mass-degenerate quarks towards the continuum limit'
+    [title]='Columbia plot for mass-degenerate quarks on finer lattices'
     [caption]="$(Refer_To_Figure 'Refined version of' '2(b)' '2' '')"
     [pdf_file]='CP-like_m-Nf_2-order.pdf'
     [svg_file]=''
@@ -193,95 +194,67 @@ declare -rgA CP_RW=(
     [svg_file]=''
 )
 declare -rgA LCP_1order=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='First-order continuum transition'
+    [caption]="$(Refer_To_Figure '' '10(a)' '1' '')"
     [pdf_file]='LCP_1-order.pdf'
     [svg_file]=''
 )
 declare -rgA LCP_2order=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Second-order continuum transition'
+    [caption]="$(Refer_To_Figure '' '10(b)' '1' '')"
     [pdf_file]='LCP_2-order.pdf'
     [svg_file]=''
 )
 declare -rgA PD_T_m_Nf=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Possible T − m − Nf phase diagram on the lattice'
+    [caption]="$(Refer_To_Figure '' '5' '1' '')"
     [pdf_file]='PD_T-m-Nf.pdf'
     [svg_file]=''
 )
 declare -rgA PD_T_m_Nf_no_surface=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Suggested continuum T − m − Nf phase diagram'
+    [caption]="$(Refer_To_Figure '' '14' '1' '')"
     [pdf_file]='PD_T-m-Nf_no-surface.pdf'
     [svg_file]=''
 )
 declare -rgA PD_T_m=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Sketch of the T − m phase diagram'
+    [caption]="$(Refer_To_Figure '' '3' '1' '')"
     [pdf_file]='PD_T-m.pdf'
     [svg_file]=''
 )
 declare -rgA PD_Wilson=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Schematic bare parameter Wilson phase diagram'
+    [caption]="$(Refer_To_Figure '' '11(a)' '1' '')"
     [pdf_file]='PD_Wilson.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2p1=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Conjectured QCD phase diagram'
+    [caption]="$(Refer_To_Figure '' '2.3(b)' '' '')"
     [pdf_file]='QCD_Nf2+1.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2p1_massless_ud=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Conjectured QCD phase diagram with $m_{u,d}=0$'
+    [caption]="$(Refer_To_Figure '' '2.3(a)' '' '')"
     [pdf_file]='QCD_Nf2+1_massless_ud.pdf'
     [svg_file]=''
 )
 declare -rgA QCD_Nf2_massive=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Plausible scenario for two-flavours QCD phase diagram'
+    [caption]="$(Refer_To_Figure '' '2.2' '' '')"
     [pdf_file]='QCD_Nf2_massive.pdf'
     [svg_file]=''
 )
-declare -rgA QCD_Nf2_massless_A=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
-    [pdf_file]='QCD_Nf2_massless_A.pdf'
-    [svg_file]=''
-)
-declare -rgA QCD_Nf2_massless_B=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
-    [pdf_file]='QCD_Nf2_massless_B.pdf'
-    [svg_file]=''
-)
-declare -rgA QCD_Nf2_massless_C=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
-    [pdf_file]='QCD_Nf2_massless_C.pdf'
-    [svg_file]=''
-)
-declare -rgA QCD_Nf2_massless_D=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
-    [pdf_file]='QCD_Nf2_massless_D.pdf'
-    [svg_file]=''
-)
-declare -rgA QCD_Nf2_massless_E=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
-    [pdf_file]='QCD_Nf2_massless_E.pdf'
-    [svg_file]=''
-)
-declare -rgA QCD_Nf2_massless_F=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
-    [pdf_file]='QCD_Nf2_massless_F.pdf'
-    [svg_file]=''
-)
+for label in {A..F}; do
+    declare -rgA "QCD_Nf2_massless_${label}=(
+        [title]='Possible two-flavours QCD phase diagram'
+        [caption]=\"$(Refer_To_Figure '' "2.1(${label,})" '' '')\"
+        [pdf_file]=QCD_Nf2_massless_${label}.pdf
+        [svg_file]=''
+    )"
+done
 declare -rgA QCD_experiments=(
     [title]=''
     [caption]="$(Refer_To_Figure '' '' '' '')"
