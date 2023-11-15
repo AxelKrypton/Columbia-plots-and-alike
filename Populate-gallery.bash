@@ -40,16 +40,16 @@ readonly images=(
     'CP_2order_with_Nf3'
     'CP_1order_with_Nf3'
     'CP_1order_hole_with_Nf3'
-#    'CP_3D_1order'
-#    'CP_3D_1order_backplane'
-#    'CP_3D_2order'
-#    'CP_3D_2order_all'
-#    'CP_3D_2order_backplane'
-#    'CP_3D_2order_full_backplane'
+    'CP_RW'
+    'CP_3D_1order'
+    'CP_3D_2order'
+    'CP_3D_2order_all'
+    'CP_3D_2order_full_backplane'
+    'CP_3D_1order_backplane'
+    'CP_3D_2order_backplane'
 #    'CP-like_Wilson.pdf'
 #    'CP-like_a-m.pdf'
 #    'CP-like_m-Nf_2-order.pdf'
-#    'CP_RW'
 #    'LCP_1-order.pdf'
 #    'LCP_2-order.pdf'
 #    'PD_T-m-Nf.pdf'
@@ -127,62 +127,68 @@ declare -rgA CP_blur=(
     [svg_file]=''
 )
 declare -rgA CP_3D_1order=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='3D Columbia plot on coarse lattices'
+    [caption]="$(Refer_To_Figure '' '2.12(a)' '' '')"
     [pdf_file]='CP_3D_1-order.pdf'
     [svg_file]=''
 )
 declare -rgA CP_3D_1order_backplane=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Chiral region of the Nf=2 plane on coarse lattices'
+    [caption]="$(Refer_To_Figure '' '2.12(b)' '' '')"
     [pdf_file]='CP_3D_1-order_backplane.pdf'
     [svg_file]=''
 )
 declare -rgA CP_3D_2order=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='3D Columbia plot in the historical second order scenario'
+    [caption]="$(Refer_To_Figure '' '2.13(a)' '' '')"
     [pdf_file]='CP_3D_2-order.pdf'
     [svg_file]=''
 )
-declare -rgA CP_3D_2order_all=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
-    [pdf_file]='CP_3D_2-order_all.pdf'
-    [svg_file]=''
-)
 declare -rgA CP_3D_2order_backplane=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Historical scenario for chiral region of the Nf=2 plane'
+    [caption]="$(Refer_To_Figure '' '2.13(b)' '' '')"
     [pdf_file]='CP_3D_2-order_backplane.pdf'
     [svg_file]=''
 )
+declare -rgA CP_3D_2order_all=(
+    [title]='Alternative scenario for 3D Columbia plot'
+    [caption]="$(Refer_To_Figure '' '2.14' '' '')"
+    [pdf_file]='CP_3D_2-order_all.pdf'
+    [svg_file]=''
+)
 declare -rgA CP_3D_2order_full_backplane=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Plausible continuum limit 3D Columbia plot'
+    [caption]='If the chiral first-order region is a lattice artefact for all values of the purely imaginary chemical potential, then it should vanish in the continuum limit.'
     [pdf_file]='CP_3D_2-order_full_backplane.pdf'
     [svg_file]=''
 )
 declare -rgA CPlike_Wilson=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Columbia-like plot for Wilson fermions'
+    [caption]="$(Refer_To_Figure '' '11(b)' '1' '')"
     [pdf_file]='CP-like_Wilson.pdf'
     [svg_file]=''
 )
 declare -rgA CPlike_a_m=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Columbia-like plot for the (a,m)-plane'
+    [caption]="$(Refer_To_Figure '' '2' '1' '')"
     [pdf_file]='CP-like_a-m.pdf'
     [svg_file]=''
 )
+declare -rgA CPlike_m_Nf_1order=(
+    [title]='Columbia plot for mass-degenerate quarks on coarse lattices'
+    [caption]="$(Refer_To_Figure 'Refined version of' '2(a)' '2' '')"
+    [pdf_file]='CP-like_m-Nf_1-order.pdf'
+    [svg_file]=''
+)
 declare -rgA CPlike_m_Nf_2order=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Columbia plot for mass-degenerate quarks towards the continuum limit'
+    [caption]="$(Refer_To_Figure 'Refined version of' '2(b)' '2' '')"
     [pdf_file]='CP-like_m-Nf_2-order.pdf'
     [svg_file]=''
 )
 declare -rgA CP_RW=(
-    [title]=''
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [title]='Roberge-Weiss Columbia plot'
+    [caption]="$(Refer_To_Figure '' '2.10' '' '')"
     [pdf_file]='CP_RW.pdf'
     [svg_file]=''
 )
@@ -397,6 +403,7 @@ declare -rgA RW_zero_mass_2order=(
     [svg_file]=''
 )
 
+
 function Convert_PDF_to_JPG()
 {
     local -r pdf_file="$1" jpg_file="$2"
@@ -476,4 +483,4 @@ for image in "${images[@]}"; do
 done
 
 # Remove Pdf folder
-git clean -f -- Pdf > /dev/null
+#git clean -f -- Pdf > /dev/null
