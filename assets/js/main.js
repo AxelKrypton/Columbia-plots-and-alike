@@ -250,6 +250,10 @@
 						s += this.outerHTML;
 					});
 
+					// Let MathJax parse the content again
+					//   -> https://docs.mathjax.org/en/v2.7-latest/advanced/typeset.html
+					MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
 					return s;
 
 				},
