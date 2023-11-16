@@ -19,8 +19,8 @@
           <div class="modal" id="{{ image.path | split: '/' | last | split: '.' | first }}">
             <h1>FAIR science!</h1>
             <p>
-              By downloading, possibly modifying and using the image in future publications, presentations, lectures and alikes,
-              you undertake to cite the authors as appropriate, i.e. as described <a href="{{site.repository}}">here</a>.
+              By downloading any image and using it (possibly modified) in future publications, presentations, lectures and similar,
+              you undertake to give credit to the authors as appropriate, i.e. as described <a href="{{site.repository}}">here</a>.
             </p>
             <div style="text-align: center">
               <a class="download-button" href="{{site.pdf_dir_url}}/{{image.pdf_file}}?raw=true" download>
@@ -37,9 +37,6 @@
           <p>{{ image.caption | liquify | markdownify }}</p>
         </article>
         {% endfor %}
-
-        <!-- no idea where to put this... -->
-        <!-- {{ content }} -->
       </div>
 
       {%- include footer.html -%}
