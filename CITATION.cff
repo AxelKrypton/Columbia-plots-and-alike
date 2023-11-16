@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: Columbia plots and alike
+message: >-
+  By downloading any image in this repository and using it
+  in future publications, presentations, lectures and similar,
+  you undertake to give credit to the authors citing them
+  using the metadata from this file.
+type: dataset
+authors:
+  - given-names: Alessandro
+    family-names: Sciarra
+    email: sciarra@itp.uni-frankfurt.de
+    affiliation: 'Goethe University, Frankfurt am Main, Germany'
+    orcid: 'https://orcid.org/0000-0002-4608-1905'
+repository-code: 'https://github.com/AxelKrypton/Columbia-plots-and-alike'
+abstract: >-
+  A collection of sketches mainly related to the QCD phase
+  diagram.
+keywords:
+  - Inkscape
+  - Lattice QCD
+license: CC-BY-4.0
+date-released: "2023-12-31"
