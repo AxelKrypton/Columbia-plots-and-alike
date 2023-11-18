@@ -95,151 +95,151 @@ declare -rgA CP_1order_with_Nf3=(
     [title]='Columbia plot on coarse lattices'
     [caption]="$(Refer_To_Figure '' '1(a)' '1' '')"
     [pdf_file]='CP_1-order_with_Nf3.pdf'
-    [svg_file]=''
+    [svg_file]='CP.svg'
 )
 declare -rgA CP_2order_with_Nf3=(
     [title]='Columbia plot historical second-order scenario'
     [caption]="$(Refer_To_Figure '' '' '' '')"
     [pdf_file]='CP_2-order_with_Nf3.pdf'
-    [svg_file]=''
+    [svg_file]='CP.svg'
 )
 declare -rgA CP_2order_all_with_Nf3=(
     [title]='Columbia plot in the continuum limit'
     [caption]="$(Refer_To_Figure '' '13' '1' '')"
     [pdf_file]='CP_2-order_all_with_Nf3.pdf'
-    [svg_file]=''
+    [svg_file]='CP.svg'
 )
 declare -rgA CP_1order_hole_with_Nf3=(
     [title]='Fancy Columbia plot scenario'
     [caption]="$(Refer_To_Figure 'Refined version of' '2.5(c)' '' '')"
     [pdf_file]='CP_1-order_hole_with_Nf3.pdf'
-    [svg_file]=''
+    [svg_file]='CP.svg'
 )
 declare -rgA CP_blur=(
     [title]='Columbia plot historical dilemma'
     [caption]="$(Refer_To_Figure 'Refined version of' '2.4' '' '')"
     [pdf_file]='CP_blur.pdf'
-    [svg_file]=''
+    [svg_file]='CP.svg'
 )
 declare -rgA CP_3D_1order=(
     [title]='3D Columbia plot on coarse lattices'
     [caption]="$(Refer_To_Figure '' '2.12(a)' '' '')"
     [pdf_file]='CP_3D_1-order.pdf'
-    [svg_file]=''
+    [svg_file]='CP_3D.svg'
 )
 declare -rgA CP_3D_1order_backplane=(
     [title]='Chiral region of the $N_\mathrm{f}=2$ plane on coarse lattices'
     [caption]="$(Refer_To_Figure '' '2.12(b)' '' '')"
     [pdf_file]='CP_3D_1-order_backplane.pdf'
-    [svg_file]=''
+    [svg_file]='CP_Backplane.svg'
 )
 declare -rgA CP_3D_2order=(
     [title]='3D Columbia plot in the historical second-order scenario'
     [caption]="$(Refer_To_Figure '' '2.13(a)' '' '')"
     [pdf_file]='CP_3D_2-order.pdf'
-    [svg_file]=''
+    [svg_file]='CP_3D.svg'
 )
 declare -rgA CP_3D_2order_backplane=(
     [title]='Historical scenario for chiral region of the $N_\mathrm{f}=2$ plane'
     [caption]="$(Refer_To_Figure '' '2.13(b)' '' '')"
     [pdf_file]='CP_3D_2-order_backplane.pdf'
-    [svg_file]=''
+    [svg_file]='CP_Backplane.svg'
 )
 declare -rgA CP_3D_2order_all=(
     [title]='Alternative scenario for 3D Columbia plot'
     [caption]="$(Refer_To_Figure '' '2.14' '' '')"
     [pdf_file]='CP_3D_2-order_all.pdf'
-    [svg_file]=''
+    [svg_file]='CP_3D.svg'
 )
 declare -rgA CP_3D_2order_full_backplane=(
     [title]='Plausible continuum limit 3D Columbia plot'
     [caption]='If the chiral first-order region is a lattice artefact for all values of the purely imaginary chemical potential, then it should vanish in the continuum limit.'
     [pdf_file]='CP_3D_2-order_full_backplane.pdf'
-    [svg_file]=''
+    [svg_file]='CP_3D.svg'
 )
 declare -rgA CPlike_Wilson=(
     [title]='Columbia-like plot for Wilson fermions'
     [caption]="$(Refer_To_Figure '' '11(b)' '1' '')"
     [pdf_file]='CP-like_Wilson.pdf'
-    [svg_file]=''
+    [svg_file]='CP_Wilson.svg'
 )
 declare -rgA CPlike_a_m=(
     [title]='Columbia-like plot for the $(a,m_{u,d})$ plane'
     [caption]="$(Refer_To_Figure '' '2' '1' '')"
     [pdf_file]='CP-like_a-m.pdf'
-    [svg_file]=''
+    [svg_file]='CP_a_m.svg'
 )
 declare -rgA CPlike_m_Nf_1order=(
     [title]='Columbia plot for mass-degenerate quarks on coarse lattices'
     [caption]="$(Refer_To_Figure 'Refined version of' '2(a)' '2' '')"
     [pdf_file]='CP-like_m-Nf_1-order.pdf'
-    [svg_file]=''
+    [svg_file]='CP_m-Nf.svg'
 )
 declare -rgA CPlike_m_Nf_2order=(
     [title]='Columbia plot for mass-degenerate quarks on finer lattices'
     [caption]="$(Refer_To_Figure 'Refined version of' '2(b)' '2' '')"
     [pdf_file]='CP-like_m-Nf_2-order.pdf'
-    [svg_file]=''
+    [svg_file]='CP_m-Nf.svg'
 )
 declare -rgA CP_RW=(
     [title]='Roberge-Weiss Columbia plot'
     [caption]="$(Refer_To_Figure '' '2.10' '' '')"
     [pdf_file]='CP_RW.pdf'
-    [svg_file]=''
+    [svg_file]='CP_RW.svg'
 )
 declare -rgA LCP_1order=(
     [title]='First-order continuum transition'
     [caption]="$(Refer_To_Figure '' '10(a)' '1' '')"
     [pdf_file]='LCP_1-order.pdf'
-    [svg_file]=''
+    [svg_file]='LCP.svg'
 )
 declare -rgA LCP_2order=(
     [title]='Second-order continuum transition'
     [caption]="$(Refer_To_Figure '' '10(b)' '1' '')"
     [pdf_file]='LCP_2-order.pdf'
-    [svg_file]=''
+    [svg_file]='LCP.svg'
 )
 declare -rgA PD_T_m_Nf=(
     [title]='Possible $(T, m, N_\mathrm{f})$ phase diagram on the lattice'
     [caption]="$(Refer_To_Figure '' '5' '1' '')"
     [pdf_file]='PD_T-m-Nf.pdf'
-    [svg_file]=''
+    [svg_file]='T_m_nf.svg'
 )
 declare -rgA PD_T_m_Nf_no_surface=(
     [title]='Suggested continuum $(T, m, N_\mathrm{f})$ phase diagram'
     [caption]="$(Refer_To_Figure '' '14' '1' '')"
     [pdf_file]='PD_T-m-Nf_no-surface.pdf'
-    [svg_file]=''
+    [svg_file]='T_m_nf.svg'
 )
 declare -rgA PD_T_m=(
     [title]='Sketch of the $(T, m_{u,d})$ phase diagram'
     [caption]="$(Refer_To_Figure '' '3' '1' '')"
     [pdf_file]='PD_T-m.pdf'
-    [svg_file]=''
+    [svg_file]='Three_states.svg'
 )
 declare -rgA PD_Wilson=(
     [title]='Schematic bare parameter Wilson phase diagram'
     [caption]="$(Refer_To_Figure '' '11(a)' '1' '')"
     [pdf_file]='PD_Wilson.pdf'
-    [svg_file]=''
+    [svg_file]='CP_Wilson.svg'
 )
 declare -rgA QCD_Nf2p1=(
     [title]='Conjectured QCD phase diagram'
     [caption]="$(Refer_To_Figure '' '2.3(b)' '' '')"
     [pdf_file]='QCD_Nf2+1.pdf'
-    [svg_file]=''
+    [svg_file]='QCD_Nf2+1.svg'
 )
 declare -rgA QCD_Nf2p1_massless_ud=(
     [title]='Conjectured QCD phase diagram with $m_{u,d}=0$'
     [caption]="$(Refer_To_Figure '' '2.3(a)' '' '')"
     [pdf_file]='QCD_Nf2+1_massless_ud.pdf'
-    [svg_file]=''
+    [svg_file]='QCD_Nf2+1.svg'
 )
 declare -rgA QCD_Nf2_massive=(
     [title]='Plausible scenario for two-flavours QCD phase diagram'
     [caption]="$(Refer_To_Figure '' '2.2' '' '')"
     [pdf_file]='QCD_Nf2_massive.pdf'
-    [svg_file]=''
+    [svg_file]='QCD_Nf2.svg'
 )
 # Do for loop to avoid duplication. This bash code is border line and
 # declare argument must be quoted to make the shell parser accept it.
@@ -250,92 +250,92 @@ for label in {A..F}; do
         [title]='Possible two-flavours QCD phase diagram'
         [caption]=\"$(Refer_To_Figure '' "2.1(${label,})" '' '')\"
         [pdf_file]=QCD_Nf2_massless_${label}.pdf
-        [svg_file]=''
+        [svg_file]='QCD_Nf2.svg'
     )"
 done
 declare -rgA QCD_experiments=(
     [title]='Conjectured phase diagram of strong interacting matter'
     [caption]="$(Refer_To_Figure '' '1' '' '')"
     [pdf_file]='QCD_experiments_blur.pdf'
-    [svg_file]=''
+    [svg_file]='QCD_experiments.svg'
 )
 declare -rgA RW_T_mass_plane=(
     [title]='The $(T, m_q)$ plane at $\mu_I=\mu_I^{RW}$'
     [caption]="$(Refer_To_Figure '' '2.7(b)' '' '')"
     [pdf_file]='RW_T_mass_plane.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mass_plane.svg'
 )
 declare -rgA RW_T_mu_mass_diagram_1order=(
     [title]='$N_\mathrm{f}=3$ QCD phase diagram in the $(T, \mu, m_q)$ space on coarse lattices'
     [caption]="$(Refer_To_Figure '' '2.8' '' '')"
     [pdf_file]='RW_T_mu_mass_diagram_1-order.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu-mass_diagram.svg'
 )
 declare -rgA RW_T_mu_mass_diagram_2order=(
     [title]='$N_\mathrm{f}=2$ QCD phase diagram in the $(T, \mu, m_q)$ space'
     [caption]="$(Refer_To_Figure '' '2.11' '' '')"
     [pdf_file]='RW_T_mu_mass_diagram_2-order.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu-mass_diagram.svg'
 )
 declare -rgA RW_T_mu_plane=(
     [title]='A view of the QCD phase diagram at imaginary chemical potential'
     [caption]="$(Refer_To_Figure '' '2.7(a)' '' '')"
     [pdf_file]='RW_T_mu_plane.pdf'
-    [svg_file]=''
+    [svg_file]='RW_generic.svg'
 )
 declare -rgA RW_Zero_mass_1order=(
     [title]='First-order scenario of $\mu_I$ phase diagram at $m_q=0$'
     [caption]="$(Refer_To_Figure '' '2.9(a)' '' '')"
     [pdf_file]='RW_Zero_mass_1-order.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu_plane.svg'
 )
 declare -rgA RW_zero_mass_2order=(
     [title]='Second-order scenario of $\mu_I$ phase diagram at $m_q=0$'
     [caption]="$(Refer_To_Figure '' '2.11(b)' '' '')"
     [pdf_file]='RW_zero_mass_2-order.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu_plane.svg'
 )
 declare -rgA RW_very_low_mass=(
     [title]='$\mu_I$ phase diagram at very low masses'
     [caption]="$(Refer_To_Figure '' '2.9(b)' '' '')"
     [pdf_file]='RW_very_low_mass.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu_plane.svg'
 )
 declare -rgA RW_low_mass=(
     [title]='$\mu_I$ phase diagram at low masses'
     [caption]="$(Refer_To_Figure '' '2.9(c)' '' '')"
     [pdf_file]='RW_low_mass_with_c-o.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu_plane.svg'
 )
 declare -rgA RW_tric_low_mass=(
     [title]='$\mu_I$ phase diagram at low tricritical mass'
     [caption]="$(Refer_To_Figure '' '2.9(d)' '' '')"
     [pdf_file]='RW_tric_low_mass_with_c-o.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu_plane.svg'
 )
 declare -rgA RW_middle_mass=(
     [title]='$\mu_I$ phase diagram at intermediate masses'
     [caption]="$(Refer_To_Figure '' '2.9(e)' '' '')"
     [pdf_file]='RW_middle_mass_with_c-o.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu_plane.svg'
 )
 declare -rgA RW_tric_high_mass=(
     [title]='$\mu_I$ phase diagram at high tricritical mass'
     [caption]="$(Refer_To_Figure '' '2.9(f)' '' '')"
     [pdf_file]='RW_tric_high_mass_with_c-o.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu_plane.svg'
 )
 declare -rgA RW_high_mass=(
     [title]='$\mu_I$ phase diagram at high masses'
     [caption]="$(Refer_To_Figure '' '2.9(g)' '' '')"
     [pdf_file]='RW_high_mass_with_c-o.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu_plane.svg'
 )
 declare -rgA RW_very_high_mass=(
     [title]='$\mu_I$ phase diagram at very high masses'
     [caption]="$(Refer_To_Figure '' '2.9(h)' '' '')"
     [pdf_file]='RW_very_high_mass.pdf'
-    [svg_file]=''
+    [svg_file]='RW_T-mu_plane.svg'
 )
 #------------------------------------------------------------------------------#
 update_existing_images='FALSE'
