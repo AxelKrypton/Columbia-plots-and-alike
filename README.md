@@ -25,6 +25,9 @@ For this reason, but also to make everything directly visible and usable, all ex
 Furthermore, the SVG files make heavy use of layers, such that all different versions of the _"same"_ plot have the same dimensions, which makes them nice to be used in overlays or animations in presentations.
 This also explain why there are much fewer SVG than PDF files.
 
+In the ***Svg*** folder, the file *Technical_specs.txt* contains relevant information about the RGB codes of the colours used as well as how 3D planes have been drawn.
+This is meant to stay consistent among different figures and keep using the same approach.
+
 
 [cc-by]: http://creativecommons.org/licenses/by/4.0/
 [cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
