@@ -35,6 +35,7 @@ readonly images_thumb_folder_path="${script_path}/assets/images/thumbs"
 readonly images_full_folder_path="${script_path}/assets/images/fulls"
 readonly images_metadata_folder_path="${script_path}/_images"
 readonly images=(
+    'Notation'
     'CP_blur'
     'CP_2order_all_with_Nf3'
     'CP_2order_with_Nf3'
@@ -91,6 +92,12 @@ function Refer_To_Figure()
     printf '%sFigure %s of {{ site.ref[%d] }}%s.' "${prefix}" "$2" "${ref}" "${postfix}"
 }
 
+declare -rgA Notation=(
+    [title]='Notation used in the figures'
+    [caption]="Refer to Table 2.1 of {{ site.ref[0] }} for further information."
+    [pdf_file]='Notation.pdf'
+    [svg_file]='""'
+)
 declare -rgA CP_1order_with_Nf3=(
     [title]='Columbia plot on coarse lattices'
     [caption]="$(Refer_To_Figure '' '1(a)' '1' '')"
