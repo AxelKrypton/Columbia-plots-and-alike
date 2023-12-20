@@ -23,12 +23,16 @@
               you undertake to give credit to the authors as appropriate, i.e. as described <a href="{{site.repository}}">here</a>.
             </p>
             <div style="text-align: center">
+              {% if image.pdf_file != "" %}
               <a class="download-button" href="{{site.pdf_dir_url}}/{{image.pdf_file}}?raw=true" download>
                 <i class="fa fa-download"></i> .pdf
               </a>
+              {% endif %}
+              {% if image.svg_file != "" %}
               <a class="download-button" href="{{site.svg_dir_url}}/{{image.svg_file}}" download>
                 <i class="fa fa-file-image"></i> .svg
               </a>
+              {% endif %}
             </div>
           </div>
           <button class="modal-open" id="modal-open-{{ image.path | split: '/' | last | split: '.' | first }}"><i class="fa fa-download"></i></button>
