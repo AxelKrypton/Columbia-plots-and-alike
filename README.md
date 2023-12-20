@@ -16,6 +16,8 @@ A DOI is associated to this work via Zenodo and there you can export the citatio
 In this case, it is encouraged to use the concept DOI rather than that of a specific version.
 The former will in any case always resolve to the latest version of the repository. 
 
+[![CC BY 4.0][cc-by-image]][cc-by]
+
 ## Some techinical information
 
 All SVG files have been produced using [Inkscape](https://inkscape.org).
