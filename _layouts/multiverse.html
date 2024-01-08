@@ -20,7 +20,22 @@
             <h1>FAIR science!</h1>
             <p>
               By downloading any image and using it (possibly modified) in future publications, presentations, lectures and similar,
-              you undertake to give credit to the authors as appropriate, i.e. as described <a href="{{site.repository}}">here</a>.
+              you undertake to give credit to the author(s) as appropriate, i.e. as described <a href="{{site.repository}}">here</a>.
+            </p>
+            <p style="margin-top:0em;">
+              {% for author in image.authors %}
+              {% if forloop.index == 1 %}
+              <b>Author{% if forloop.length > 1 %}s{% endif %} of this figure:</b>
+              {% endif %}
+              {% assign tmp = number | minus: 1 %}
+              {% if forloop.index == tmp %}
+              {{author}}&#32;and&#32;
+              {% elsif forloop.index < forloop.length %}
+              {{author}},&#32;
+              {% else %}
+              {{author}}.
+              {% endif %}
+              {% endfor %}
             </p>
             <div style="text-align: center">
               {% if image.pdf_file != "" %}

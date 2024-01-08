@@ -22,14 +22,15 @@ set -euo pipefail
 shopt -s inherit_errexit
 trap 'printf "\n"' EXIT
 
-for prog in git latexmk pdftoppm; do
+for prog in git latexmk pdftoppm yq; do
     if ! hash "${prog}"; then
-        printf "\e[91m Program ${prog} not found, but needed.\n"
+        printf "\e[91m Program ${prog} not found, but needed.\e[0m\n"
         exit 1
     fi
 done
 
 readonly script_path=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+readonly authors_file="AUTHORS.yaml"
 readonly pdf_folder_path="${script_path}/Pdf"
 readonly images_thumb_folder_path="${script_path}/assets/images/thumbs"
 readonly images_full_folder_path="${script_path}/assets/images/fulls"
@@ -97,6 +98,7 @@ declare -rgA Notation=(
     [caption]="Refer to Table 2.1 of {{ site.ref[0] }} for further information."
     [pdf_file]='Notation.pdf'
     [svg_file]='""'
+    [authors]='Alessandro Sciarra'
 )
 declare -rgA CP_1order_with_Nf3=(
     [title]='Columbia plot on coarse lattices'
@@ -407,6 +409,15 @@ TEX
     rm -r "${tmp_folder}"
 }
 
+function Get_List_Of_Image_Authors()
+{
+    if [[ ! -f "${authors_file}" ]]; then
+        printf "\e[91m Authors file not found, unexpeced -> Aborting!\e[0m\n"
+        exit 1
+    fi
+    printf '[%s]' "$(yq -o csv '."'"$1"'"' "${authors_file}")"
+}
+
 function Create_Image_Metadata_File()
 {
     local -r output_number="$1"
@@ -416,6 +427,11 @@ function Create_Image_Metadata_File()
         for field in title caption {pdf,svg}_file; do
             printf "${field}: ${array_ref[${field}]}\n"
         done
+        if [[ "${array_ref[svg_file]}" != '""' ]]; then
+            printf "authors: %s\n" "$(Get_List_Of_Image_Authors "${array_ref[svg_file]}")" 
+        else
+            printf "authors: ${array_ref[authors]}\n" # If no SVG file, then use hard-coded data
+        fi
         printf '%s\n' '---'
     } > "${images_metadata_folder_path}/${output_number}.md"
 }
@@ -424,9 +440,10 @@ function Create_Image_Metadata_File()
 # to switch branch. However, if we then simply put files in the correct folders,
 # it would be basically difficult to switch back overwriting existing branches in
 # the orphan branch. Hence, we stay on the orphan branch and we get the Pdf folder
-# from main, unstage it (checkout automatically stages) and then work and delete it.
-git checkout main -- Pdf
-git restore -S Pdf
+# from main, unstage it (checkout automatically stages) and then work and delete
+# it. The same is done for other auxiliary needed files.
+git checkout main -- Pdf "${authors_file}"
+git restore -S Pdf "${authors_file}"
 
 counter=1
 updated=1
@@ -454,5 +471,5 @@ for image in "${images[@]}"; do
 done
 printf "\e[92mINFO: %d image(s) and %d metadata file(s) updated.\e[0m\n" "$((updated-1))" "$((counter-1))"
 
-# Remove Pdf folder
-git clean -f -- Pdf > /dev/null
+# Remove Pdf folder and AUTHORS file
+git clean -f -- Pdf "${authors_file}" > /dev/null
