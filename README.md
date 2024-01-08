@@ -12,9 +12,13 @@ It will be my pleasure to merge it in and give credit to you as appropriate.
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License][cc-by].
 By downloading any image in this repository and using it in future publications, presentations, lectures and similar, you undertake to give credit to the authors citing them as appropriate.
-A DOI is associated to this work via Zenodo and there you can export the citation in the format you prefer (BibTeX and many more).
+By clicking on the `Cite this repository` button you can export the citation code e.g. in the BibTeX format.
+In the [authors file](AUTHORS.yaml) you can check out who contributed to which figure and you can, therefore, limit your citation to the relevant authors, depending which figure you used.
+
+Furthermore, a DOI is associated to this work via Zenodo and you can checkout the available releases there.
+Zenodo allows you to export the citation in many more different formats than GitHub and it might be advantageous for you to export the citation entry from it.
 In this case, it is encouraged to use the concept DOI rather than that of a specific version.
-The former will in any case always resolve to the latest version of the repository. 
+The former will in any case always resolve to the latest version of the repository.
 
 [![CC BY 4.0][cc-by-image]][cc-by]
 
