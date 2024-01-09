@@ -86,6 +86,10 @@ readonly images=(
 
 function Refer_To_Figure()
 {
+    # References (see _config.yaml file):
+    #  - 0 -> Alessandro Sciarra's Ph.D. thesis (2016)
+    #  - 1 -> https://arxiv.org/pdf/2107.12739.pdf -> Cuteri, Philipsen, Sciarra JHEP paper
+    #  - 2 -> https://arxiv.org/pdf/1711.05658.pdf -> Cuteri, Philipsen, Sciarra PRD paper
     local -r prefix=${1- } ref=${3:-0} postfix=${4-}
     if [[ ! ${ref} =~ ^[0-2]$ ]]; then
         printf "\n\e[91m Invalid reference '${ref}' passed to ${FUNCNAME}.\n" >&2
