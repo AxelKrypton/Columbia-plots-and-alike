@@ -25,9 +25,9 @@
             <p style="margin-top:0em;">
               {% for author in image.authors %}
               {% if forloop.index == 1 %}
-              <b>Author{% if forloop.length > 1 %}s{% endif %} of this figure:</b>
+              <b>Author{% if forloop.length > 1 %}s{% endif %} of this figure:&nbsp;</b>
               {% endif %}
-              {% assign tmp = number | minus: 1 %}
+              {% assign tmp = forloop.length | minus: 1 %}
               {% if forloop.index == tmp %}
               {{author}}&#32;and&#32;
               {% elsif forloop.index < forloop.length %}
