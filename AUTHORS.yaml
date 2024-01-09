@@ -1,20 +1,27 @@
 Notation.pdf:
   authors:
     - Alessandro Sciarra
+
 CP.svg:
   associated_pdf_files:
     - CP_blur.pdf
+    - CP_2-order_all.pdf
     - CP_2-order_all_with_Nf3.pdf
+    - CP_2-order.pdf
     - CP_2-order_with_Nf3.pdf
+    - CP_1-order.pdf
     - CP_1-order_with_Nf3.pdf
+    - CP_1-order_hole.pdf
     - CP_1-order_hole_with_Nf3.pdf
   authors:
     - Alessandro Sciarra
+
 CP_RW.svg:
   associated_pdf_files:
     - CP_RW.pdf
   authors:
     - Alessandro Sciarra
+
 CP_3D.svg:
   associated_pdf_files:
     - CP_3D_1-order.pdf
@@ -23,12 +30,14 @@ CP_3D.svg:
     - CP_3D_2-order_full_backplane.pdf
   authors:
     - Alessandro Sciarra
+
 CP_Backplane.svg:
   associated_pdf_files:
     - CP_3D_1-order_backplane.pdf
     - CP_3D_2-order_backplane.pdf
   authors:
     - Alessandro Sciarra
+
 CP_m-Nf.svg:
   associated_pdf_files:
     - CP-like_m-Nf_1-order.pdf
@@ -36,11 +45,14 @@ CP_m-Nf.svg:
   authors:
     - Alessandro Sciarra
     - Francesca Cuteri
+
 QCD_experiments.svg:
   associated_pdf_files:
     - QCD_experiments_blur.pdf
+    - QCD_experiments.pdf
   authors:
     - Alessandro Sciarra
+
 QCD_Nf2.svg:
   associated_pdf_files:
     - QCD_Nf2_massive.pdf
@@ -52,63 +64,78 @@ QCD_Nf2.svg:
     - QCD_Nf2_massless_F.pdf
   authors:
     - Alessandro Sciarra
+
 QCD_Nf2+1.svg:
   associated_pdf_files:
     - QCD_Nf2+1.pdf
     - QCD_Nf2+1_massless_ud.pdf
   authors:
     - Alessandro Sciarra
+
 RW_generic.svg:
   associated_pdf_files:
     - RW_T_mu_plane.pdf
   authors:
     - Alessandro Sciarra
+
 RW_T-mass_plane.svg:
   associated_pdf_files:
     - RW_T_mass_plane.pdf
   authors:
     - Alessandro Sciarra
+
 RW_T-mu-mass_diagram.svg:
   associated_pdf_files:
     - RW_T_mu_mass_diagram_1-order.pdf
     - RW_T_mu_mass_diagram_2-order.pdf
   authors:
     - Alessandro Sciarra
+
 RW_T-mu_plane.svg:
   associated_pdf_files:
     - RW_Zero_mass_1-order.pdf
     - RW_zero_mass_2-order.pdf
     - RW_very_low_mass.pdf
+    - RW_low_mass.pdf
     - RW_low_mass_with_c-o.pdf
+    - RW_tric_low_mass.pdf
     - RW_tric_low_mass_with_c-o.pdf
+    - RW_middle_mass.pdf
     - RW_middle_mass_with_c-o.pdf
+    - RW_tric_high_mass.pdf
     - RW_tric_high_mass_with_c-o.pdf
+    - RW_high_mass.pdf
     - RW_high_mass_with_c-o.pdf
     - RW_very_high_mass.pdf
   authors:
     - Alessandro Sciarra
+
 Three_states.svg:
   associated_pdf_files:
     - PD_T-m.pdf
   authors:
     - Alessandro Sciarra
+
 CP_a_m.svg:
   associated_pdf_files:
     - CP-like_a-m.pdf
   authors:
     - Alessandro Sciarra
+
 LCP.svg:
   associated_pdf_files:
     - LCP_1-order.pdf
     - LCP_2-order.pdf
   authors:
     - Alessandro Sciarra
+
 CP_Wilson.svg:
   associated_pdf_files:
     - PD_Wilson.pdf
     - CP-like_Wilson.pdf
   authors:
     - Alessandro Sciarra
+
 T_m_nf.svg:
   associated_pdf_files:
     - PD_T-m-Nf.pdf
