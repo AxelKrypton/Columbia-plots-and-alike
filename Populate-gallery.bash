@@ -102,7 +102,6 @@ declare -rgA Notation=(
     [caption]="Refer to Table 2.1 of {{ site.ref[0] }} for further information."
     [pdf_file]='Notation.pdf'
     [svg_file]='""'
-    [authors]='Alessandro Sciarra'
 )
 declare -rgA CP_1order_with_Nf3=(
     [title]='Columbia plot on coarse lattices'
@@ -419,7 +418,7 @@ function Get_List_Of_Image_Authors()
         printf "\e[91m Authors file not found, unexpeced -> Aborting!\e[0m\n"
         exit 1
     fi
-    printf '[%s]' "$(yq -o csv '."'"$1"'"' "${authors_file}")"
+    printf '[%s]' "$(yq -o csv '."'"$1"'".authors' "${authors_file}")"
 }
 
 function Create_Image_Metadata_File()
@@ -434,7 +433,8 @@ function Create_Image_Metadata_File()
         if [[ "${array_ref[svg_file]}" != '""' ]]; then
             printf "authors: %s\n" "$(Get_List_Of_Image_Authors "${array_ref[svg_file]}")" 
         else
-            printf "authors: ${array_ref[authors]}\n" # If no SVG file, then use hard-coded data
+            # If no SVG file, then use pdf file as entry, which we ASSUME to be there
+            printf "authors: %s\n" "$(Get_List_Of_Image_Authors "${array_ref[pdf_file]}")"
         fi
         printf '%s\n' '---'
     } > "${images_metadata_folder_path}/${output_number}.md"
