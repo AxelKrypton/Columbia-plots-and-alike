@@ -12,7 +12,10 @@
 			font-size: 0.9em;
 
 			a {
-				color: inherit;
+				color: _palette(fg-medium);
+			}
+			.emph {
+				color: _palette(fg);
 			}
 		}
 	}

@@ -7,7 +7,13 @@
       </section>
       {%- include social.html -%}
       <p class="copyright">
-        &copy; <a href="mailto:{{ site.email }}">{{ site.author }}</a><br>
+        <b>&copy;</b>
+        {% if site.form_in_footer %}
+        <b>{{ site.author }}</b>
+        {% else %}
+        <a href="mailto:{{ site.email }}" class="emph">{{ site.author }}</a>
+        {% endif %}
+        <br>
         Web-site design based on <a href="http://html5up.net">HTML5 UP</a>.
       </p>
     </div>
