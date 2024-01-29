@@ -85,7 +85,7 @@ readonly images=(
     'PD_T_m_Nf_no_surface'
 )
 
-function Refer_To_Figure()
+function Get_Markdown_Reference_Link()
 {
     # References (see _config.yml file):
     #  - 0 -> Alessandro Sciarra's Ph.D. thesis (2016)
@@ -93,22 +93,31 @@ function Refer_To_Figure()
     #  - 2 -> https://arxiv.org/pdf/1711.05658.pdf -> Cuteri, Philipsen, Sciarra PRD paper
     #
     # NOTE: Since it is not possible to use the jekyll-liquify plugin
-    #         https://github.com/gemfarmer/jekyll-liquify
+    #            https://github.com/gemfarmer/jekyll-liquify
     #       on GitHub pages, we extract here the references from the site configuration file
     #       instead of using {{ site.ref[...] }} syntax. We use yq for that purpose.
+    if [[ ! -f "${site_conf_file}" ]]; then
+        printf "\n\e[91m File '${site_conf_file}' needed in ${FUNCNAME} function.\n" >&2
+    else
+        yq ".ref[$1]" "${site_conf_file}"
+    fi
+}
+
+function Refer_To_Figure()
+{
     local -r prefix=${1- } ref=${3:-0} postfix=${4-}
     if [[ ! ${ref} =~ ^[0-2]$ ]]; then
         printf "\n\e[91m Invalid reference '${ref}' passed to ${FUNCNAME} function.\n" >&2
     elif [[ ! -f "${site_conf_file}" ]]; then
         printf "\n\e[91m File '${site_conf_file}' needed in ${FUNCNAME} function.\n" >&2
     fi
-    local -r markdown_link="$(yq '.ref['${ref}']' "${site_conf_file}")"
+    local -r markdown_link="$(Get_Markdown_Reference_Link ${ref})"
     printf '%sFigure %s of %s%s.' "${prefix}" "$2" "${markdown_link}" "${postfix}"
 }
 
 declare -rgA Notation=(
     [title]='Notation used in the figures'
-    [caption]="Refer to Table 2.1 of {{ site.ref[0] }} for further information."
+    [caption]="Refer to Table 2.1 of $(Get_Markdown_Reference_Link 0) for further information."
     [pdf_file]='Notation.pdf'
     [svg_file]='""'
 )
@@ -120,7 +129,7 @@ declare -rgA CP_1order_with_Nf3=(
 )
 declare -rgA CP_2order_with_Nf3=(
     [title]='Columbia plot historical second-order scenario'
-    [caption]="$(Refer_To_Figure '' '' '' '')"
+    [caption]="$(Refer_To_Figure 'Refined version of ' '2.5(b)' '' '')"
     [pdf_file]='CP_2-order_with_Nf3.pdf'
     [svg_file]='CP.svg'
 )
@@ -132,13 +141,13 @@ declare -rgA CP_2order_all_with_Nf3=(
 )
 declare -rgA CP_1order_hole_with_Nf3=(
     [title]='Fancy Columbia plot scenario'
-    [caption]="$(Refer_To_Figure 'Refined version of' '2.5(c)' '' '')"
+    [caption]="$(Refer_To_Figure 'Refined version of ' '2.5(c)' '' '')"
     [pdf_file]='CP_1-order_hole_with_Nf3.pdf'
     [svg_file]='CP.svg'
 )
 declare -rgA CP_blur=(
     [title]='Columbia plot historical dilemma'
-    [caption]="$(Refer_To_Figure 'Refined version of' '2.4' '' '')"
+    [caption]="$(Refer_To_Figure 'Refined version of ' '2.4' '' '')"
     [pdf_file]='CP_blur.pdf'
     [svg_file]='CP.svg'
 )
@@ -192,13 +201,13 @@ declare -rgA CPlike_a_m=(
 )
 declare -rgA CPlike_m_Nf_1order=(
     [title]='Columbia plot for mass-degenerate quarks on coarse lattices'
-    [caption]="$(Refer_To_Figure 'Refined version of' '2(a)' '2' '')"
+    [caption]="$(Refer_To_Figure 'Refined version of ' '2(a)' '2' '')"
     [pdf_file]='CP-like_m-Nf_1-order.pdf'
     [svg_file]='CP_m-Nf.svg'
 )
 declare -rgA CPlike_m_Nf_2order=(
     [title]='Columbia plot for mass-degenerate quarks on finer lattices'
-    [caption]="$(Refer_To_Figure 'Refined version of' '2(b)' '2' '')"
+    [caption]="$(Refer_To_Figure 'Refined version of ' '2(b)' '2' '')"
     [pdf_file]='CP-like_m-Nf_2-order.pdf'
     [svg_file]='CP_m-Nf.svg'
 )
