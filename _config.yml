@@ -9,7 +9,7 @@ description: >-
 social:
   github: AxelKrypton
 
-form_in_footer: true
+form_in_footer: false
 
 repository: https://github.com/AxelKrypton/Columbia-plots-and-alikes
 pdf_dir_url: https://github.com/AxelKrypton/Columbia-plots-and-alikes/blob/main/Pdf
