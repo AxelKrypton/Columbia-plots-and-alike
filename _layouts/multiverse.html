@@ -53,7 +53,7 @@
           <button class="modal-open" id="modal-open-{{ image.path | split: '/' | last | split: '.' | first }}"><i class="fa fa-download"></i></button>
 
           <h2>{{ image.title }}</h2>
-          <p>{{ image.caption | liquify | markdownify }}</p>
+          <p>{{ image.caption | markdownify }}</p>
         </article>
         {% endfor %}
       </div>
