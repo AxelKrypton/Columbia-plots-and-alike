@@ -33,4 +33,8 @@ gem "wdm", "~> 0.1.0" if Gem.win_platform?
 # Validate HTML output
 gem 'html-proofer'
 
-gem "webrick", "~> 1.8"
+# Conditional requirement, from https://github.com/github/pages-gem/issues/887
+install_if -> { ENV["GITHUB_ACTIONS"] != "true" } do
+    puts "Is GitHub action: #{ENV["GITHUB_ACTIONS"] == "true"}"
+    gem "webrick", "~> 1.8"
+end
