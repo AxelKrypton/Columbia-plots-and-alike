@@ -30,6 +30,7 @@ for prog in git latexmk pdftoppm yq; do
 done
 
 readonly script_path=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+readonly site_conf_file="_config.yml"
 readonly authors_file="AUTHORS.yaml"
 readonly pdf_folder_path="${script_path}/Pdf"
 readonly images_thumb_folder_path="${script_path}/assets/images/thumbs"
@@ -86,15 +87,23 @@ readonly images=(
 
 function Refer_To_Figure()
 {
-    # References (see _config.yaml file):
+    # References (see _config.yml file):
     #  - 0 -> Alessandro Sciarra's Ph.D. thesis (2016)
     #  - 1 -> https://arxiv.org/pdf/2107.12739.pdf -> Cuteri, Philipsen, Sciarra JHEP paper
     #  - 2 -> https://arxiv.org/pdf/1711.05658.pdf -> Cuteri, Philipsen, Sciarra PRD paper
+    #
+    # NOTE: Since it is not possible to use the jekyll-liquify plugin
+    #         https://github.com/gemfarmer/jekyll-liquify
+    #       on GitHub pages, we extract here the references from the site configuration file
+    #       instead of using {{ site.ref[...] }} syntax. We use yq for that purpose.
     local -r prefix=${1- } ref=${3:-0} postfix=${4-}
     if [[ ! ${ref} =~ ^[0-2]$ ]]; then
-        printf "\n\e[91m Invalid reference '${ref}' passed to ${FUNCNAME}.\n" >&2
+        printf "\n\e[91m Invalid reference '${ref}' passed to ${FUNCNAME} function.\n" >&2
+    elif [[ ! -f "${site_conf_file}" ]]; then
+        printf "\n\e[91m File '${site_conf_file}' needed in ${FUNCNAME} function.\n" >&2
     fi
-    printf '%sFigure %s of {{ site.ref[%d] }}%s.' "${prefix}" "$2" "${ref}" "${postfix}"
+    local -r markdown_link="$(yq '.ref['${ref}']' "${site_conf_file}")"
+    printf '%sFigure %s of %s%s.' "${prefix}" "$2" "${markdown_link}" "${postfix}"
 }
 
 declare -rgA Notation=(
