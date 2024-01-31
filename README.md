@@ -1,6 +1,7 @@
 # Columbia plots and alike
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10599968.svg)][doi-link]
 
 This repository gathers in one place all figures related to my research during my Ph.D. and afterwards.
 Many people asked me many times if it was possible to get the source files behind the figures, which I then decided to make public, confident that my work will be properly cited and credit given.
@@ -16,9 +17,9 @@ By downloading any image in this repository and using it (possibly modified) in 
 By clicking on the `Cite this repository` button you can export the citation code e.g. in the BibTeX format.
 In the [authors file](AUTHORS.yaml) you can check out who contributed to which figure and you can, therefore, limit your citation to the relevant authors, depending which figure you used.
 
-Furthermore, a DOI is associated to this work via Zenodo and you can checkout the available releases there.
+Furthermore, a DOI is associated to this work via Zenodo and you can checkout the available releases [there][doi-link].
 Zenodo allows you to export the citation in many more different formats than GitHub and it might be advantageous for you to export the citation entry from it.
-In this case, it is encouraged to use the concept DOI rather than that of a specific version.
+In this case, it is encouraged to use the concept DOI `10.5281/zenodo.10599968` rather than that of a specific version.
 The former will in any case always resolve to the latest version of the repository.
 
 If you use a PDF file which was already published in a previous article, citing such an article is clearly already enough.
@@ -98,3 +99,4 @@ The width of transitions lines is `1mm` while axis are `0.3mm` thick.
 [cc-by]: http://creativecommons.org/licenses/by/4.0/
 [cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
 [cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+[doi-link]: https://doi.org/10.5281/zenodo.10599968
