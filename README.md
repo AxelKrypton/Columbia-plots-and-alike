@@ -65,6 +65,8 @@ The width of transitions lines is `1mm` while axis are `0.3mm` thick.
 | O(4) text                  |  `(255,0,200)`   | ![](https://img.shields.io/badge/Colour%20example-rgb(255,0,200))   |
 | O(4) line                  |  `(255,0,200)`   | ![](https://img.shields.io/badge/Colour%20example-rgb(255,0,200))   |
 | O(4) region                |  `(255,215,255)` | ![](https://img.shields.io/badge/Colour%20example-rgb(255,215,255)) |
+| Generic 2nd order text     |  `(255,100,200)` | ![](https://img.shields.io/badge/Colour%20example-rgb(255,100,200)) |
+| Generic 2nd line           |  `(255,100,200)` | ![](https://img.shields.io/badge/Colour%20example-rgb(255,100,200)) |
 | 1st order triple region    |  `(170,255,204)` | ![](https://img.shields.io/badge/Colour%20example-rgb(170,255,204)) |
 | 1st order triple text      |  `(0,85,34)`     | ![](https://img.shields.io/badge/Colour%20example-rgb(0,85,34))     |
 | 1st order triple line      |  `(0,180,0)`     | ![](https://img.shields.io/badge/Colour%20example-rgb(0,180,0))     |
@@ -83,16 +85,21 @@ The width of transitions lines is `1mm` while axis are `0.3mm` thick.
 - The **left** backplane is obtained starting from the 2D Columbia plot's square and
     1. scaling it horizontally by `87.037%` (inverse is `114.894%`);
     1. scaling it vertically by `80.761%` (inverse is `123.822%`) and
-    1. distorting vertically by `16.093 degrees`.
+    1. distorting vertically by `-16.093 degrees`.
 - The **right** backplane is obtained starting from 2D Columbia plot's square and
     1. scaling it horizontally by `49.918%` (inverse is `200.328%`);
     1. scaling it vertically by `80.761%` (inverse is `123.822%`) and
-    1. distorting vertically by `-40.953 degrees`.
+    1. distorting vertically by `40.953 degrees`.
 
 #### Remarks about the 3D (T, mui, mass) plot
 
 - The **right** plane is obtained by distorting the 2D plane vertically by `-15 degrees`.
 - The **left** plane is obtained by distorting the 2D plane vertically by `+15 degrees` and scaling it horizontally by `150%`.
+
+#### Remarks about the 3D isospin (T, mui, mass) plot
+
+- The **right** plane is obtained as the left backplane in the 3D Columbia plot.
+- The **left** plane is obtained as the right backplane in the 3D Columbia plot but distorting vertically by `30 degrees` only.
 
 
 
