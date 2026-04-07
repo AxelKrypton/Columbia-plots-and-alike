@@ -371,13 +371,13 @@ declare -rgA RW_very_high_mass=(
     [svg_file]='RW_T-mu_plane.svg'
 )
 declare -rgA Isospin_T_mu_mass_no_chiral=(
-    [title]='Phase diagram of $N_\mathrm{f}=3$ QCD in the $(T, \mu_I, m_q)$'
+    [title]='Sketch of the $N_\mathrm{f}=3$ QCD phase diagram in the $(T, \mu_I, m_q)$ space'
     [caption]="$(Refer_To_Figure '' '9' '3' '')"
     [pdf_file]='Isospin_T-mu-mass_no-chiral.pdf'
     [svg_file]='Isospin_T-mu-mass.svg'
 )
 declare -rgA Isospin_T_mu_mass=(
-    [title]='Speculative phase diagram of $N_\mathrm{f}=3$ QCD in the $(T, \mu_I, m_q)$'
+    [title]='Speculative sketch of the $N_\mathrm{f}=3$ QCD phase diagram in the $(T, \mu_I, m_q)$ space'
     [caption]="$(Refer_To_Figure 'Speculation of how ' '9' '3' ' might look like in the chiral limit')"
     [pdf_file]='Isospin_T-mu-mass.pdf'
     [svg_file]='Isospin_T-mu-mass.svg'
