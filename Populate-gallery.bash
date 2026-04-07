@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #------------------------------------------------------------------------------#
-# (c) 2023 Alessandro Sciarra <sciarra@itp.uni-frankfurt.de>
+# (c) 2023-2024,2026 Alessandro Sciarra <sciarra@itp.uni-frankfurt.de>
 #
 # This script is meant to be used to populate or reorder the images in the
 # gallery. All the images metadata are stores in this script in associative
@@ -14,7 +14,7 @@
 #
 # The arrays are structured in a clever way to populate metadata:
 #  - the array keys are the YAML keys of the metadata;
-#  - the array entries are the values ofr YAML files;
+#  - the array entries are the values of YAML files;
 #  - the names of the arrays are stored in another array which
 #    determines the order of the images in the website.
 #------------------------------------------------------------------------------#
@@ -83,14 +83,17 @@ readonly images=(
     'CPlike_Wilson'
     'PD_T_m_Nf'
     'PD_T_m_Nf_no_surface'
+    'Isospin_T_mu_mass_no_chiral'
+    'Isospin_T_mu_mass'
 )
 
 function Get_Markdown_Reference_Link()
 {
     # References (see _config.yml file):
     #  - 0 -> Alessandro Sciarra's Ph.D. thesis (2016)
-    #  - 1 -> https://arxiv.org/pdf/2107.12739.pdf -> Cuteri, Philipsen, Sciarra JHEP paper
-    #  - 2 -> https://arxiv.org/pdf/1711.05658.pdf -> Cuteri, Philipsen, Sciarra PRD paper
+    #  - 1 -> https://arxiv.org/pdf/2107.12739.pdf -> Cuteri, Philipsen, Sciarra (JHEP paper)
+    #  - 2 -> https://arxiv.org/pdf/1711.05658.pdf -> Cuteri, Philipsen, Sciarra (PRD paper)
+    #  - 3 -> https://arxiv.org/pdf/2603.22046.pdf -> Endrodi, Moore, Pieczynski, Sciarra (Isospin paper PRD)
     #
     # NOTE: Since it is not possible to use the jekyll-liquify plugin
     #            https://github.com/gemfarmer/jekyll-liquify
@@ -106,7 +109,7 @@ function Get_Markdown_Reference_Link()
 function Refer_To_Figure()
 {
     local -r prefix=${1- } ref=${3:-0} postfix=${4-}
-    if [[ ! ${ref} =~ ^[0-2]$ ]]; then
+    if [[ ! ${ref} =~ ^[0-3]$ ]]; then
         printf "\n\e[91m Invalid reference '${ref}' passed to ${FUNCNAME} function.\n" >&2
     elif [[ ! -f "${site_conf_file}" ]]; then
         printf "\n\e[91m File '${site_conf_file}' needed in ${FUNCNAME} function.\n" >&2
@@ -366,6 +369,18 @@ declare -rgA RW_very_high_mass=(
     [caption]="$(Refer_To_Figure '' '2.9(h)' '' '')"
     [pdf_file]='RW_very_high_mass.pdf'
     [svg_file]='RW_T-mu_plane.svg'
+)
+declare -rgA Isospin_T_mu_mass_no_chiral=(
+    [title]='Phase diagram of $N_\mathrm{f}=3$ QCD in the $(T, \mu_I, m_q)$'
+    [caption]="$(Refer_To_Figure '' '9' '3' '')"
+    [pdf_file]='Isospin_T-mu-mass_no-chiral.pdf'
+    [svg_file]='Isospin_T-mu-mass.svg'
+)
+declare -rgA Isospin_T_mu_mass=(
+    [title]='Speculative phase diagram of $N_\mathrm{f}=3$ QCD in the $(T, \mu_I, m_q)$'
+    [caption]="$(Refer_To_Figure 'Speculation of how ' '9' '3' ' might look like in the chiral limit')"
+    [pdf_file]='Isospin_T-mu-mass.pdf'
+    [svg_file]='Isospin_T-mu-mass.svg'
 )
 #------------------------------------------------------------------------------#
 update_existing_images='FALSE'
